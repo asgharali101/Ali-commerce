@@ -6,23 +6,23 @@ MIT licensed - free for personal and commercial use.
 ## Templates Preview
 
 <details open="true"><summary><strong>Homepage</strong></summary><br>
-<img width="350px" src="/index.png" alt="Homepage">
+<img width="350px" src="./index.png" alt="Homepage">
 </details>
 
 <details><summary><strong>Catalog</strong></summary><br>
-<img width="350px" src="/catelog.png" alt="Catalog">
+<img width="350px" src="./catelog.png" alt="Catalog">
 </details>
 
 <details><summary><strong>Product overview</strong></summary><br>
-<img width="350px" src="/product.png" alt="Product overview screenshot">
+<img width="350px" src="./product.png" alt="Product overview screenshot">
 </details>
 
 <details><summary><strong>Account page</strong></summary><br>
-<img width="350px" src="/account.png" alt="Account page screenshot">
+<img width="350px" src="./account.png" alt="Account page screenshot">
 </details>
 
 <details><summary><strong>Wishlist</strong></summary><br>
-<img width="350px" src="/wishlist.png" alt="Wishlist preview">
+<img width="350px" src="./wishlist.png" alt="Wishlist preview">
 </details>
 
 ## Getting started
