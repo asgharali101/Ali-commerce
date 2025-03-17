@@ -6,7 +6,11 @@ MIT licensed - free for personal and commercial use.
 ## Templates Preview
 
 <details open="true"><summary><strong>Homepage</strong></summary><br>
+<<<<<<< HEAD
 <img width="350px" src="/assets/images/" alt="Homepage">
+=======
+<img width="350px" src="/assets/images/home.png" alt="Homepage">
+>>>>>>> 2121488d17a8ea5a55671b0ca2fdad27071b58d7
 </details>
 
 <details><summary><strong>Catalog</strong></summary><br>
