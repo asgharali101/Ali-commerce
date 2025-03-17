@@ -1,1706 +1,731 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/tailwind-ecommerce.css" />
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
-    <link rel="manifest" href="/site.webmanifest" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#207891" />
-    <meta name="msapplication-TileColor" content="#ffc40d" />
-    <meta name="theme-color" content="#ffffff" />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/tailwind-ecommerce.css" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
-    <title>asghar e-commerce - Online furniture store</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#207891" />
+  <meta name="msapplication-TileColor" content="#ffc40d" />
+  <meta name="theme-color" content="#ffffff" />
 
-  <body x-data="{ desktopMenuOpen: false, mobileMenuOpen: false}">
-    <!-- Header -->
-    <header
-      class="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5 text-black"
-    >
-      <a href="index.html" class="flex items-center justify-center h-screen">
-        <span class="text-5xl font-bold text-teal-600 drop-shadow-md">
-          Ali
-        </span>
-        <span
-          class="pt-1 text-3xl font-light tracking-wide text-gray-700 uppercase"
-        >
-          Commerce
-        </span>
+  <title>asghar e-commerce - Online furniture store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+</head>
 
-        <!-- <img
+<body x-data="{ desktopMenuOpen: false, mobileMenuOpen: false}">
+  <!-- Header -->
+  <header class="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5 text-black">
+    <a href="./index.html" class="flex items-center justify-center h-screen">
+      <span class="text-5xl font-bold text-teal-600 drop-shadow-md">
+        Ali
+      </span>
+      <span class="pt-1 text-3xl font-light tracking-wide text-gray-700 uppercase">
+        Commerce
+      </span>
+
+      <!-- <img
           class="cursor-pointer sm:h-auto sm:w-auto"
           src="./assets/images/company-logo.svg"
           alt="company logo"
         /> -->
+    </a>
+
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden">
+      <button @click="mobileMenuOpen = !mobileMenuOpen" class="hover:text-teal-500">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+          class="w-8 h-8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Search Bar -->
+    <form class="items-center hidden w-2/5 overflow-hidden text-gray-700 bg-white rounded-lg shadow-md md:flex">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-5 h-5 mx-3">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+      </svg>
+      <input class="w-full px-3 py-2 outline-none" type="search" placeholder="Search" />
+      <button class="px-4 py-2 font-bold text-white bg-teal-600 hover:bg-teal-300">
+        Search
+      </button>
+    </form>
+
+    <!-- Icons -->
+    <div class="items-center hidden gap-4 md:flex">
+      <a href="./wishlist.html" class="flex flex-col items-center hover:text-teal-500">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+          class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5C14.377 3.75 12.715 4.876 12 6.483 11.285 4.876 9.623 3.75 7.687 3.75 5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+        </svg>
+        <p class="text-xs">Wishlist</p>
       </a>
 
-      <!-- Mobile Menu Button -->
-      <div class="md:hidden">
-        <button
-          @click="mobileMenuOpen = !mobileMenuOpen"
-          class="hover:text-teal-500"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            class="w-8 h-8"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
-          </svg>
-        </button>
-      </div>
-
-      <!-- Search Bar -->
-      <form
-        class="items-center hidden w-2/5 overflow-hidden text-gray-700 bg-white rounded-lg shadow-md md:flex"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          stroke="currentColor"
-          class="w-5 h-5 mx-3"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-          />
+      <a href="./cart.html" class="flex flex-col items-center hover:text-teal-500">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+          <path fill-rule="evenodd"
+            d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
+            clip-rule="evenodd" />
         </svg>
-        <input
-          class="w-full px-3 py-2 outline-none"
-          type="search"
-          placeholder="Search"
-        />
-        <button
-          class="px-4 py-2 font-bold text-white bg-teal-600 hover:bg-teal-300"
-        >
-          Search
-        </button>
-      </form>
+        <p class="text-xs">Cart</p>
+      </a>
 
-      <!-- Icons -->
-      <div class="items-center hidden gap-4 md:flex">
-        <a
-          href="wishlist.html"
-          class="flex flex-col items-center hover:text-teal-500"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5C14.377 3.75 12.715 4.876 12 6.483 11.285 4.876 9.623 3.75 7.687 3.75 5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-            />
+      <a href="./account-page.html" class="relative flex flex-col items-center hover:text-teal-500">
+        <span class="absolute bottom-[33px] right-1 flex h-2 w-2">
+          <span class="absolute inline-flex w-full h-full bg-red-400 rounded-full opacity-75 animate-ping"></span>
+          <span class="relative inline-flex w-2 h-2 bg-red-500 rounded-full"></span>
+        </span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+          class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        </svg>
+        <p class="text-xs">Account</p>
+      </a>
+    </div>
+  </header>
+
+  <!-- /Header -->
+
+  <!-- Burger menu  -->
+  <section x-show="mobileMenuOpen" @click.outside="mobileMenuOpen = false"
+    class="absolute left-0 right-0 z-50 w-full h-screen bg-white" style="display: none">
+    <div class="mx-auto">
+      <div class="flex justify-center w-full gap-3 py-4 mx-auto">
+        <a href="./wishlist.html" class="flex flex-col items-center justify-center cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
           </svg>
+
           <p class="text-xs">Wishlist</p>
         </a>
 
-        <a
-          href="cart.html"
-          class="flex flex-col items-center hover:text-teal-500"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              fill-rule="evenodd"
+        <a href="./cart.html" class="flex flex-col items-center justify-center cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path fill-rule="evenodd"
               d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
-              clip-rule="evenodd"
-            />
+              clip-rule="evenodd" />
           </svg>
+
           <p class="text-xs">Cart</p>
         </a>
 
-        <a
-          href="account-page.html"
-          class="relative flex flex-col items-center hover:text-teal-500"
-        >
+        <a href="./account-page.html" class="relative flex flex-col items-center justify-center cursor-pointer">
           <span class="absolute bottom-[33px] right-1 flex h-2 w-2">
-            <span
-              class="absolute inline-flex w-full h-full bg-red-400 rounded-full opacity-75 animate-ping"
-            ></span>
-            <span
-              class="relative inline-flex w-2 h-2 bg-red-500 rounded-full"
-            ></span>
+            <span class="absolute inline-flex w-full h-full bg-red-400 rounded-full opacity-75 animate-ping"></span>
+            <span class="relative inline-flex w-2 h-2 bg-red-500 rounded-full"></span>
           </span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-            />
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
           </svg>
+
           <p class="text-xs">Account</p>
         </a>
       </div>
-    </header>
 
-    <!-- /Header -->
+      <form class="flex items-center mx-5 my-4 border h-9">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="w-4 h-4 mx-3">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+        </svg>
 
-    <!-- Burger menu  -->
-    <section
-      x-show="mobileMenuOpen"
-      @click.outside="mobileMenuOpen = false"
-      class="absolute left-0 right-0 z-50 w-full h-screen bg-white"
-      style="display: none"
-    >
-      <div class="mx-auto">
-        <div class="flex justify-center w-full gap-3 py-4 mx-auto">
-          <a
-            href="wishlist.html"
-            class="flex flex-col items-center justify-center cursor-pointer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-              />
-            </svg>
+        <input class="hidden w-11/12 outline-none md:block" type="search" placeholder="Search" />
 
-            <p class="text-xs">Wishlist</p>
-          </a>
+        <button type="submit" class="h-full px-4 ml-auto bg-amber-400 hover:bg-yellow-300">
+          Search
+        </button>
+      </form>
+      <ul class="font-medium text-center">
+        <li class="py-2"><a href="./index.html">Home</a></li>
+        <li class="py-2"><a href="./catalog.html">catalog</a></li>
+        <li class="py-2"><a href="./about-us.html">About Us</a></li>
+        <li class="py-2"><a href="./contact-us.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </section>
+  <!-- /Burger menu  -->
 
-          <a
-            href="cart.html"
-            class="flex flex-col items-center justify-center cursor-pointer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 004.25 22.5h15.5a1.875 1.875 0 001.865-2.071l-1.263-12a1.875 1.875 0 00-1.865-1.679H16.5V6a4.5 4.5 0 10-9 0zM12 3a3 3 0 00-3 3v.75h6V6a3 3 0 00-3-3zm-3 8.25a3 3 0 106 0v-.75a.75.75 0 011.5 0v.75a4.5 4.5 0 11-9 0v-.75a.75.75 0 011.5 0v.75z"
-                clip-rule="evenodd"
-              />
-            </svg>
-
-            <p class="text-xs">Cart</p>
-          </a>
-
-          <a
-            href="account-page.html"
-            class="relative flex flex-col items-center justify-center cursor-pointer"
-          >
-            <span class="absolute bottom-[33px] right-1 flex h-2 w-2">
-              <span
-                class="absolute inline-flex w-full h-full bg-red-400 rounded-full opacity-75 animate-ping"
-              ></span>
-              <span
-                class="relative inline-flex w-2 h-2 bg-red-500 rounded-full"
-              ></span>
-            </span>
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-              />
-            </svg>
-
-            <p class="text-xs">Account</p>
-          </a>
-        </div>
-
-        <form class="flex items-center mx-5 my-4 border h-9">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-4 h-4 mx-3"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-            />
+  <!-- Nav bar -->
+  <!-- hidden on small devices -->
+  <nav class="relative bg-teal-600 shadow-lg">
+    <div class="mx-auto hidden h-14 w-full max-w-[1200px] items-center md:flex px-6">
+      <!-- Categories Button -->
+      <button @click="desktopMenuOpen = !desktopMenuOpen"
+        class="flex items-center justify-center w-48 py-3 duration-200 rounded-md shadow-md mr-14 bg-gradient-to-r from-teal-400 to-teal-200 hover:shadow-lg">
+        <div class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
+          <span class="text-lg font-semibold text-gray-800">All Categories</span>
+        </div>
+      </button>
 
-          <input
-            class="hidden w-11/12 outline-none md:block"
-            type="search"
-            placeholder="Search"
-          />
+      <!-- Navigation Links -->
+      <div class="flex gap-8">
+        <a class="text-base font-semibold text-white transition duration-200 hover:text-yellow-400 hover:underline"
+          href="./index.html">
+          Home
+        </a>
+        <a class="text-base font-semibold text-white transition duration-200 hover:text-yellow-400 hover:underline"
+          href="./catalog.html">
+          catalog
+        </a>
+        <a class="text-base font-semibold text-white transition duration-200 hover:text-yellow-400 hover:underline"
+          href="./about-us.html">
+          About Us
+        </a>
+        <a class="text-base font-semibold text-white transition duration-200 hover:text-yellow-400 hover:underline"
+          href="./contact-us.html">
+          Contact Us
+        </a>
+      </div>
 
-          <button
-            type="submit"
-            class="h-full px-4 ml-auto bg-amber-400 hover:bg-yellow-300"
-          >
-            Search
-          </button>
-        </form>
-        <ul class="font-medium text-center">
-          <li class="py-2"><a href="index.html">Home</a></li>
-          <li class="py-2"><a href="catalog.html">Catalog</a></li>
-          <li class="py-2"><a href="about-us.html">About Us</a></li>
-          <li class="py-2"><a href="contact-us.html">Contact Us</a></li>
+      <!-- Login/Signup Links -->
+      <div class="flex items-center gap-6 ml-auto">
+        <a class="text-base font-semibold text-white transition duration-200 hover:text-yellow-400 hover:underline"
+          href="./login.html">
+          Login
+        </a>
+        <span class="text-white">|</span>
+        <a class="text-base font-semibold text-white transition duration-200 hover:text-yellow-400 hover:underline"
+          href="./sign-up.html">
+          Sign Up
+        </a>
+      </div>
+    </div>
+  </nav>
+  <!-- Menu  -->
+  <section x-show="desktopMenuOpen" @click.outside="desktopMenuOpen = false"
+    class="absolute left-0 right-0 z-10 w-full bg-white border-b border-l border-r" style="display: none">
+    <div class="mx-auto flex max-w-[1200px] py-10">
+      <div class="w-[300px] border-r">
+        <ul class="px-5">
+          <li class="flex items-center gap-2 px-3 py-2 active:blue-900 bg-amber-400 active:bg-amber-400">
+            <img width="15px" height="15px" src="./assets/images/bed.svg" alt="Bedroom icon" />
+            Bedroom
+            <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </span>
+          </li>
+
+          <li class="flex items-center gap-2 px-3 py-2 active:blue-900 hover:bg-neutral-100 active:bg-amber-400">
+            <img width="15px" height="15px" src="./assets/images/sleep.svg" alt="bedroom icon" />
+            Matrass
+            <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </span>
+          </li>
+
+          <li class="flex items-center gap-2 px-3 py-2 active:blue-900 hover:bg-neutral-100 active:bg-amber-400">
+            <img width="15px" height="15px" src="./assets/images/outdoor.svg" alt="bedroom icon" />
+            Outdoor
+            <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </span>
+          </li>
+
+          <li class="flex items-center gap-2 px-3 py-2 active:blue-900 hover:bg-neutral-100 active:bg-amber-400">
+            <img width="15px" height="15px" src="./assets/images/sofa.svg" alt="bedroom icon" />
+            Sofa
+            <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </span>
+          </li>
+
+          <li class="flex items-center gap-2 px-3 py-2 active:blue-900 hover:bg-neutral-100 active:bg-amber-400">
+            <img width="15px" height="15px" src="./assets/images/kitchen.svg" alt="bedroom icon" />
+            Kitchen
+            <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </span>
+          </li>
+
+          <li class="flex items-center gap-2 px-3 py-2 active:blue-900 hover:bg-neutral-100 active:bg-amber-400">
+            <img width="15px" height="15px" src="./assets/images/food.svg" alt="Food icon" />
+            Living room
+            <span class="ml-auto"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </span>
+          </li>
         </ul>
       </div>
-    </section>
-    <!-- /Burger menu  -->
 
-    <!-- Nav bar -->
-    <!-- hidden on small devices -->
-    <nav class="relative bg-teal-600 shadow-lg">
-      <div
-        class="mx-auto hidden h-14 w-full max-w-[1200px] items-center md:flex px-6"
-      >
-        <!-- Categories Button -->
-        <button
-          @click="desktopMenuOpen = !desktopMenuOpen"
-          class="flex items-center justify-center w-48 py-3 duration-200 rounded-md shadow-md mr-14 bg-gradient-to-r from-teal-400 to-teal-200 hover:shadow-lg"
-        >
-          <div class="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
+      <div class="flex justify-between w-full">
+        <div class="flex gap-6">
+          <div class="mx-5">
+            <p class="font-medium text-gray-500">BEDS</p>
+            <ul class="text-sm leading-8">
+              <li><a href="./product-overview.html">Italian bed</a></li>
+              <li><a href="./product-overview.html">Queen-size bed</a></li>
+              <li><a href="./product-overview.html">Wooden craft bed</a></li>
+              <li><a href="./product-overview.html">King-size bed</a></li>
+            </ul>
+          </div>
+
+          <div class="mx-5">
+            <p class="font-medium text-gray-500">LAMPS</p>
+            <ul class="text-sm leading-8">
+              <li><a href="./product-overview.html">Italian Purple Lamp</a></li>
+              <li><a href="./product-overview.html">APEX Lamp</a></li>
+              <li><a href="./product-overview.html">PIXAR lamp</a></li>
+              <li><a href="./product-overview.html">Ambient Nightlamp</a></li>
+            </ul>
+          </div>
+
+          <div class="mx-5">
+            <p class="font-medium text-gray-500">BEDSIDE TABLES</p>
+            <ul class="text-sm leading-8">
+              <li><a href="./product-overview.html">Purple Table</a></li>
+              <li><a href="./product-overview.html">Easy Bedside</a></li>
+              <li><a href="./product-overview.html">Soft Table</a></li>
+              <li><a href="./product-overview.html">Craft Table</a></li>
+            </ul>
+          </div>
+
+          <div class="mx-5">
+            <p class="font-medium text-gray-500">SPECIAL</p>
+            <ul class="text-sm leading-8">
+              <li><a href="./product-overview.html">Humidifier</a></li>
+              <li><a href="./product-overview.html">Bed Cleaner</a></li>
+              <li><a href="./product-overview.html">Vacuum Cleaner</a></li>
+              <li><a href="./product-overview.html">Pillow</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- /Menu  -->
+  <!-- /Nav bar -->
+
+  <div class="max-w-[85rem] pt-20 pb-14 mx-auto px-4 sm:px-6 lg:px-16">
+    <!-- Grid -->
+    <div class="grid gap-4 md:grid-cols-2 md:gap-8 xl:gap-20 md:items-center">
+      <div class="md:pt-8">
+        <h1 class="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight">
+          Start your journey with <span class="text-teal-600">Preline</span>
+        </h1>
+        <p class="mt-3 text-lg text-gray-800">
+          Hand-picked professionals and expertly crafted components, designed
+          for any kind of entrepreneur.
+        </p>
+
+        <!-- Buttons -->
+        <div class="grid w-full gap-3 mt-7 sm:inline-flex">
+          <a class="inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white bg-teal-600 border border-transparent rounded-lg gap-x-2 hover:bg-teal-700 focus:outline-none focus:bg-teal-700 disabled:opacity-50 disabled:pointer-events-none"
+            href="#">
+            Get started
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6" />
             </svg>
-            <span class="text-lg font-semibold text-gray-800"
-              >All Categories</span
-            >
-          </div>
-        </button>
-
-        <!-- Navigation Links -->
-        <div class="flex gap-8">
-          <a
-            class="text-base font-semibold text-white transition duration-200 hover:text-yellow-400 hover:underline"
-            href="index.html"
-          >
-            Home
           </a>
-          <a
-            class="text-base font-semibold text-white transition duration-200 hover:text-yellow-400 hover:underline"
-            href="catalog.html"
-          >
-            Catalog
-          </a>
-          <a
-            class="text-base font-semibold text-white transition duration-200 hover:text-yellow-400 hover:underline"
-            href="about-us.html"
-          >
-            About Us
-          </a>
-          <a
-            class="text-base font-semibold text-white transition duration-200 hover:text-yellow-400 hover:underline"
-            href="contact-us.html"
-          >
-            Contact Us
+          <a class="inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+            href="#">
+            Contact sales team
           </a>
         </div>
+        <!-- End Buttons -->
 
-        <!-- Login/Signup Links -->
-        <div class="flex items-center gap-6 ml-auto">
-          <a
-            class="text-base font-semibold text-white transition duration-200 hover:text-yellow-400 hover:underline"
-            href="login.html"
-          >
-            Login
-          </a>
-          <span class="text-white">|</span>
-          <a
-            class="text-base font-semibold text-white transition duration-200 hover:text-yellow-400 hover:underline"
-            href="sign-up.html"
-          >
-            Sign Up
-          </a>
-        </div>
-      </div>
-    </nav>
-    <!-- Menu  -->
-    <section
-      x-show="desktopMenuOpen"
-      @click.outside="desktopMenuOpen = false"
-      class="absolute left-0 right-0 z-10 w-full bg-white border-b border-l border-r"
-      style="display: none"
-    >
-      <div class="mx-auto flex max-w-[1200px] py-10">
-        <div class="w-[300px] border-r">
-          <ul class="px-5">
-            <li
-              class="flex items-center gap-2 px-3 py-2 active:blue-900 bg-amber-400 active:bg-amber-400"
-            >
-              <img
-                width="15px"
-                height="15px"
-                src="./assets/images/bed.svg"
-                alt="Bedroom icon"
-              />
-              Bedroom
-              <span class="ml-auto"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-4 h-4"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-              </span>
-            </li>
-
-            <li
-              class="flex items-center gap-2 px-3 py-2 active:blue-900 hover:bg-neutral-100 active:bg-amber-400"
-            >
-              <img
-                width="15px"
-                height="15px"
-                src="./assets/images/sleep.svg"
-                alt="bedroom icon"
-              />
-              Matrass
-              <span class="ml-auto"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-4 h-4"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-              </span>
-            </li>
-
-            <li
-              class="flex items-center gap-2 px-3 py-2 active:blue-900 hover:bg-neutral-100 active:bg-amber-400"
-            >
-              <img
-                width="15px"
-                height="15px"
-                src="./assets/images/outdoor.svg"
-                alt="bedroom icon"
-              />
-              Outdoor
-              <span class="ml-auto"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-4 h-4"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-              </span>
-            </li>
-
-            <li
-              class="flex items-center gap-2 px-3 py-2 active:blue-900 hover:bg-neutral-100 active:bg-amber-400"
-            >
-              <img
-                width="15px"
-                height="15px"
-                src="./assets/images/sofa.svg"
-                alt="bedroom icon"
-              />
-              Sofa
-              <span class="ml-auto"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-4 h-4"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-              </span>
-            </li>
-
-            <li
-              class="flex items-center gap-2 px-3 py-2 active:blue-900 hover:bg-neutral-100 active:bg-amber-400"
-            >
-              <img
-                width="15px"
-                height="15px"
-                src="./assets/images/kitchen.svg"
-                alt="bedroom icon"
-              />
-              Kitchen
-              <span class="ml-auto"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-4 h-4"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-              </span>
-            </li>
-
-            <li
-              class="flex items-center gap-2 px-3 py-2 active:blue-900 hover:bg-neutral-100 active:bg-amber-400"
-            >
-              <img
-                width="15px"
-                height="15px"
-                src="./assets/images/food.svg"
-                alt="Food icon"
-              />
-              Living room
-              <span class="ml-auto"
-                ><svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-4 h-4"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                  />
-                </svg>
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="flex justify-between w-full">
-          <div class="flex gap-6">
-            <div class="mx-5">
-              <p class="font-medium text-gray-500">BEDS</p>
-              <ul class="text-sm leading-8">
-                <li><a href="product-overview.html">Italian bed</a></li>
-                <li><a href="product-overview.html">Queen-size bed</a></li>
-                <li><a href="product-overview.html">Wooden craft bed</a></li>
-                <li><a href="product-overview.html">King-size bed</a></li>
-              </ul>
-            </div>
-
-            <div class="mx-5">
-              <p class="font-medium text-gray-500">LAMPS</p>
-              <ul class="text-sm leading-8">
-                <li><a href="product-overview.html">Italian Purple Lamp</a></li>
-                <li><a href="product-overview.html">APEX Lamp</a></li>
-                <li><a href="product-overview.html">PIXAR lamp</a></li>
-                <li><a href="product-overview.html">Ambient Nightlamp</a></li>
-              </ul>
-            </div>
-
-            <div class="mx-5">
-              <p class="font-medium text-gray-500">BEDSIDE TABLES</p>
-              <ul class="text-sm leading-8">
-                <li><a href="product-overview.html">Purple Table</a></li>
-                <li><a href="product-overview.html">Easy Bedside</a></li>
-                <li><a href="product-overview.html">Soft Table</a></li>
-                <li><a href="product-overview.html">Craft Table</a></li>
-              </ul>
-            </div>
-
-            <div class="mx-5">
-              <p class="font-medium text-gray-500">SPECIAL</p>
-              <ul class="text-sm leading-8">
-                <li><a href="product-overview.html">Humidifier</a></li>
-                <li><a href="product-overview.html">Bed Cleaner</a></li>
-                <li><a href="product-overview.html">Vacuum Cleaner</a></li>
-                <li><a href="product-overview.html">Pillow</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- /Menu  -->
-    <!-- /Nav bar -->
-
-    <div class="max-w-[85rem] pt-20 pb-14 mx-auto px-4 sm:px-6 lg:px-16">
-      <!-- Grid -->
-      <div class="grid gap-4 md:grid-cols-2 md:gap-8 xl:gap-20 md:items-center">
-        <div class="md:pt-8">
-          <h1
-            class="block text-3xl font-bold text-gray-800 sm:text-4xl lg:text-6xl lg:leading-tight"
-          >
-            Start your journey with <span class="text-teal-600">Preline</span>
-          </h1>
-          <p class="mt-3 text-lg text-gray-800">
-            Hand-picked professionals and expertly crafted components, designed
-            for any kind of entrepreneur.
-          </p>
-
-          <!-- Buttons -->
-          <div class="grid w-full gap-3 mt-7 sm:inline-flex">
-            <a
-              class="inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-white bg-teal-600 border border-transparent rounded-lg gap-x-2 hover:bg-teal-700 focus:outline-none focus:bg-teal-700 disabled:opacity-50 disabled:pointer-events-none"
-              href="#"
-            >
-              Get started
-              <svg
-                class="shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="m9 18 6-6-6-6" />
+        <!-- Review -->
+        <div class="grid grid-cols-2 mt-6 lg:mt-10 gap-x-5">
+          <!-- Review -->
+          <div class="py-5">
+            <div class="flex gap-x-1">
+              <svg class="text-gray-800 size-4" width="51" height="51" viewBox="0 0 51 51" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
+                  fill="currentColor" />
               </svg>
-            </a>
-            <a
-              class="inline-flex items-center justify-center px-4 py-3 text-sm font-medium text-gray-800 bg-white border border-gray-200 rounded-lg shadow-sm gap-x-2 hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-              href="#"
-            >
-              Contact sales team
-            </a>
+              <svg class="text-gray-800 size-4" width="51" height="51" viewBox="0 0 51 51" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
+                  fill="currentColor" />
+              </svg>
+              <svg class="text-gray-800 size-4" width="51" height="51" viewBox="0 0 51 51" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
+                  fill="currentColor" />
+              </svg>
+              <svg class="text-gray-800 size-4" width="51" height="51" viewBox="0 0 51 51" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
+                  fill="currentColor" />
+              </svg>
+              <svg class="text-gray-800 size-4" width="51" height="51" viewBox="0 0 51 51" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
+                  fill="currentColor" />
+              </svg>
+            </div>
+
+            <p class="mt-3 text-sm text-gray-800">
+              <span class="font-bold">4.6</span> /5 - from 12k reviews
+            </p>
+
+            <div class="mt-5">
+              <svg class="w-16 h-auto text-gray-800" width="80" height="27" viewBox="0 0 80 27" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20.558 9.74046H11.576V12.3752H17.9632C17.6438 16.0878 14.5301 17.7245 11.6159 17.7245C7.86341 17.7245 4.58995 14.7704 4.58995 10.6586C4.58995 6.62669 7.70373 3.51291 11.6159 3.51291C14.6498 3.51291 16.4063 5.42908 16.4063 5.42908L18.2426 3.51291C18.2426 3.51291 15.8474 0.878184 11.4961 0.878184C5.94724 0.838264 1.67578 5.50892 1.67578 10.5788C1.67578 15.5289 5.70772 20.3592 11.6558 20.3592C16.8854 20.3592 20.7177 16.8063 20.7177 11.4969C20.7177 10.3792 20.558 9.74046 20.558 9.74046Z"
+                  fill="currentColor" />
+                <path
+                  d="M27.8621 7.78442C24.1894 7.78442 21.5547 10.6587 21.5547 14.012C21.5547 17.4451 24.1096 20.3593 27.9419 20.3593C31.415 20.3593 34.2094 17.7645 34.2094 14.0918C34.1695 9.94011 30.896 7.78442 27.8621 7.78442ZM27.902 10.2994C29.6984 10.2994 31.415 11.7764 31.415 14.0918C31.415 16.4072 29.7383 17.8842 27.902 17.8842C25.906 17.8842 24.3491 16.2874 24.3491 14.0519C24.3092 11.8962 25.8661 10.2994 27.902 10.2994Z"
+                  fill="currentColor" />
+                <path
+                  d="M41.5964 7.78442C37.9238 7.78442 35.2891 10.6587 35.2891 14.012C35.2891 17.4451 37.844 20.3593 41.6763 20.3593C45.1493 20.3593 47.9438 17.7645 47.9438 14.0918C47.9038 9.94011 44.6304 7.78442 41.5964 7.78442ZM41.6364 10.2994C43.4328 10.2994 45.1493 11.7764 45.1493 14.0918C45.1493 16.4072 43.4727 17.8842 41.6364 17.8842C39.6404 17.8842 38.0835 16.2874 38.0835 14.0519C38.0436 11.8962 39.6004 10.2994 41.6364 10.2994Z"
+                  fill="currentColor" />
+                <path
+                  d="M55.0475 7.82434C51.6543 7.82434 49.0195 10.7784 49.0195 14.0918C49.0195 17.8443 52.0934 20.3992 54.9676 20.3992C56.764 20.3992 57.6822 19.7205 58.4407 18.8822V20.1198C58.4407 22.2754 57.1233 23.5928 55.1273 23.5928C53.2111 23.5928 52.2531 22.1557 51.8938 21.3573L49.4587 22.3553C50.297 24.1517 52.0135 26.0279 55.0874 26.0279C58.4407 26.0279 60.9956 23.9122 60.9956 19.481V8.18362H58.3608V9.26147C57.6423 8.38322 56.5245 7.82434 55.0475 7.82434ZM55.287 10.2994C56.9237 10.2994 58.6403 11.7365 58.6403 14.1317C58.6403 16.6068 56.9636 17.9241 55.2471 17.9241C53.4507 17.9241 51.774 16.4471 51.774 14.1716C51.8139 11.6966 53.5305 10.2994 55.287 10.2994Z"
+                  fill="currentColor" />
+                <path
+                  d="M72.8136 7.78442C69.62 7.78442 66.9453 10.2994 66.9453 14.0519C66.9453 18.004 69.9393 20.3593 73.093 20.3593C75.7278 20.3593 77.4044 18.8822 78.3625 17.6048L76.1669 16.1277C75.608 17.006 74.6499 17.8443 73.093 17.8443C71.3365 17.8443 70.5381 16.8862 70.0192 15.9281L78.4423 12.4152L78.0032 11.3772C77.1649 9.46107 75.2886 7.78442 72.8136 7.78442ZM72.8934 10.2196C74.0511 10.2196 74.8495 10.8184 75.2487 11.5768L69.6599 13.9321C69.3405 12.0958 71.097 10.2196 72.8934 10.2196Z"
+                  fill="currentColor" />
+                <path d="M62.9531 19.9999H65.7076V1.47693H62.9531V19.9999Z" fill="currentColor" />
+              </svg>
+              <!-- End Star -->
+            </div>
           </div>
-          <!-- End Buttons -->
+          <!-- End Review -->
 
           <!-- Review -->
-          <div class="grid grid-cols-2 mt-6 lg:mt-10 gap-x-5">
-            <!-- Review -->
-            <div class="py-5">
-              <div class="flex gap-x-1">
-                <svg
-                  class="text-gray-800 size-4"
-                  width="51"
-                  height="51"
-                  viewBox="0 0 51 51"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <svg
-                  class="text-gray-800 size-4"
-                  width="51"
-                  height="51"
-                  viewBox="0 0 51 51"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <svg
-                  class="text-gray-800 size-4"
-                  width="51"
-                  height="51"
-                  viewBox="0 0 51 51"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <svg
-                  class="text-gray-800 size-4"
-                  width="51"
-                  height="51"
-                  viewBox="0 0 51 51"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <svg
-                  class="text-gray-800 size-4"
-                  width="51"
-                  height="51"
-                  viewBox="0 0 51 51"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </div>
-
-              <p class="mt-3 text-sm text-gray-800">
-                <span class="font-bold">4.6</span> /5 - from 12k reviews
-              </p>
-
-              <div class="mt-5">
-                <svg
-                  class="w-16 h-auto text-gray-800"
-                  width="80"
-                  height="27"
-                  viewBox="0 0 80 27"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M20.558 9.74046H11.576V12.3752H17.9632C17.6438 16.0878 14.5301 17.7245 11.6159 17.7245C7.86341 17.7245 4.58995 14.7704 4.58995 10.6586C4.58995 6.62669 7.70373 3.51291 11.6159 3.51291C14.6498 3.51291 16.4063 5.42908 16.4063 5.42908L18.2426 3.51291C18.2426 3.51291 15.8474 0.878184 11.4961 0.878184C5.94724 0.838264 1.67578 5.50892 1.67578 10.5788C1.67578 15.5289 5.70772 20.3592 11.6558 20.3592C16.8854 20.3592 20.7177 16.8063 20.7177 11.4969C20.7177 10.3792 20.558 9.74046 20.558 9.74046Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M27.8621 7.78442C24.1894 7.78442 21.5547 10.6587 21.5547 14.012C21.5547 17.4451 24.1096 20.3593 27.9419 20.3593C31.415 20.3593 34.2094 17.7645 34.2094 14.0918C34.1695 9.94011 30.896 7.78442 27.8621 7.78442ZM27.902 10.2994C29.6984 10.2994 31.415 11.7764 31.415 14.0918C31.415 16.4072 29.7383 17.8842 27.902 17.8842C25.906 17.8842 24.3491 16.2874 24.3491 14.0519C24.3092 11.8962 25.8661 10.2994 27.902 10.2994Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M41.5964 7.78442C37.9238 7.78442 35.2891 10.6587 35.2891 14.012C35.2891 17.4451 37.844 20.3593 41.6763 20.3593C45.1493 20.3593 47.9438 17.7645 47.9438 14.0918C47.9038 9.94011 44.6304 7.78442 41.5964 7.78442ZM41.6364 10.2994C43.4328 10.2994 45.1493 11.7764 45.1493 14.0918C45.1493 16.4072 43.4727 17.8842 41.6364 17.8842C39.6404 17.8842 38.0835 16.2874 38.0835 14.0519C38.0436 11.8962 39.6004 10.2994 41.6364 10.2994Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M55.0475 7.82434C51.6543 7.82434 49.0195 10.7784 49.0195 14.0918C49.0195 17.8443 52.0934 20.3992 54.9676 20.3992C56.764 20.3992 57.6822 19.7205 58.4407 18.8822V20.1198C58.4407 22.2754 57.1233 23.5928 55.1273 23.5928C53.2111 23.5928 52.2531 22.1557 51.8938 21.3573L49.4587 22.3553C50.297 24.1517 52.0135 26.0279 55.0874 26.0279C58.4407 26.0279 60.9956 23.9122 60.9956 19.481V8.18362H58.3608V9.26147C57.6423 8.38322 56.5245 7.82434 55.0475 7.82434ZM55.287 10.2994C56.9237 10.2994 58.6403 11.7365 58.6403 14.1317C58.6403 16.6068 56.9636 17.9241 55.2471 17.9241C53.4507 17.9241 51.774 16.4471 51.774 14.1716C51.8139 11.6966 53.5305 10.2994 55.287 10.2994Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M72.8136 7.78442C69.62 7.78442 66.9453 10.2994 66.9453 14.0519C66.9453 18.004 69.9393 20.3593 73.093 20.3593C75.7278 20.3593 77.4044 18.8822 78.3625 17.6048L76.1669 16.1277C75.608 17.006 74.6499 17.8443 73.093 17.8443C71.3365 17.8443 70.5381 16.8862 70.0192 15.9281L78.4423 12.4152L78.0032 11.3772C77.1649 9.46107 75.2886 7.78442 72.8136 7.78442ZM72.8934 10.2196C74.0511 10.2196 74.8495 10.8184 75.2487 11.5768L69.6599 13.9321C69.3405 12.0958 71.097 10.2196 72.8934 10.2196Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M62.9531 19.9999H65.7076V1.47693H62.9531V19.9999Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <!-- End Star -->
-              </div>
+          <div class="py-5">
+            <div class="flex gap-x-1">
+              <svg class="text-gray-800 size-4" width="51" height="51" viewBox="0 0 51 51" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
+                  fill="currentColor" />
+              </svg>
+              <svg class="text-gray-800 size-4" width="51" height="51" viewBox="0 0 51 51" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
+                  fill="currentColor" />
+              </svg>
+              <svg class="text-gray-800 size-4" width="51" height="51" viewBox="0 0 51 51" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
+                  fill="currentColor" />
+              </svg>
+              <svg class="text-gray-800 size-4" width="51" height="51" viewBox="0 0 51 51" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
+                  fill="currentColor" />
+              </svg>
+              <svg class="text-gray-800 size-4" width="51" height="51" viewBox="0 0 51 51" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
+                  fill="currentColor" />
+              </svg>
             </div>
-            <!-- End Review -->
 
-            <!-- Review -->
-            <div class="py-5">
-              <div class="flex gap-x-1">
-                <svg
-                  class="text-gray-800 size-4"
-                  width="51"
-                  height="51"
-                  viewBox="0 0 51 51"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <svg
-                  class="text-gray-800 size-4"
-                  width="51"
-                  height="51"
-                  viewBox="0 0 51 51"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <svg
-                  class="text-gray-800 size-4"
-                  width="51"
-                  height="51"
-                  viewBox="0 0 51 51"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <svg
-                  class="text-gray-800 size-4"
-                  width="51"
-                  height="51"
-                  viewBox="0 0 51 51"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <svg
-                  class="text-gray-800 size-4"
-                  width="51"
-                  height="51"
-                  viewBox="0 0 51 51"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M27.0352 1.6307L33.9181 16.3633C34.2173 16.6768 34.5166 16.9903 34.8158 16.9903L50.0779 19.1845C50.9757 19.1845 51.275 20.4383 50.6764 21.0652L39.604 32.3498C39.3047 32.6632 39.3047 32.9767 39.3047 33.2901L41.998 49.2766C42.2973 50.217 41.1002 50.8439 40.5017 50.5304L26.4367 43.3208C26.1375 43.3208 25.8382 43.3208 25.539 43.3208L11.7732 50.8439C10.8754 51.1573 9.97763 50.5304 10.2769 49.59L12.9702 33.6036C12.9702 33.2901 12.9702 32.9767 12.671 32.6632L1.29923 21.0652C0.700724 20.4383 0.999979 19.4979 1.89775 19.4979L17.1598 17.3037C17.459 17.3037 17.7583 16.9903 18.0575 16.6768L24.9404 1.6307C25.539 0.69032 26.736 0.69032 27.0352 1.6307Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </div>
+            <p class="mt-3 text-sm text-gray-800">
+              <span class="font-bold">4.8</span> /5 - from 5k reviews
+            </p>
 
-              <p class="mt-3 text-sm text-gray-800">
-                <span class="font-bold">4.8</span> /5 - from 5k reviews
-              </p>
-
-              <div class="mt-5">
-                <!-- Star -->
-                <svg
-                  class="w-16 h-auto text-gray-800"
-                  width="110"
-                  height="28"
-                  viewBox="0 0 110 28"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M66.6601 8.35107C64.8995 8.35107 63.5167 8.72875 62.1331 9.48265C62.1331 5.4582 62.1331 1.81143 62.2594 0.554199L53.8321 2.06273V2.81736L54.7124 2.94301C55.8433 3.19431 56.2224 3.82257 56.4715 5.33255C56.725 8.35107 56.5979 24.4496 56.4715 27.0912C58.7354 27.5945 61.1257 27.9722 63.5159 27.9722C70.1819 27.9722 74.2064 23.8213 74.2064 17.281C74.2064 12.1249 70.9366 8.35107 66.6601 8.35107ZM63.7672 26.5878C63.2639 26.5878 62.6342 26.5878 62.258 26.4629C62.1316 24.7023 62.0067 17.281 62.1316 10.7413C62.8862 10.4893 63.3888 10.3637 64.0185 10.3637C66.7872 10.3637 68.2965 13.6335 68.2965 17.6572C68.2957 22.6898 66.4088 26.5878 63.7672 26.5878ZM22.1363 1.0568H0V2.18838L1.25796 2.31403C2.89214 2.56533 3.52184 3.57127 3.77242 5.9608C4.15082 10.4886 4.02445 18.6646 3.77242 22.5619C3.52112 24.9522 2.89287 26.0845 1.25796 26.2087L0 26.4615V27.4674H14.2123V26.4615L12.703 26.2087C11.0681 26.0838 10.4392 24.9522 10.1879 22.5619C10.0615 20.9263 9.93583 18.2847 9.93583 15.0156L12.9543 15.1413C14.8413 15.1413 15.7208 16.6505 16.0985 18.7881H17.2308V9.86106H16.0985C15.7201 11.9993 14.8413 13.5078 12.9543 13.5078L9.93655 13.6342C9.93655 9.35773 10.0622 5.33328 10.1886 2.94374H14.59C17.9869 2.94374 19.7475 5.08125 21.0047 8.85513L22.2626 8.47745L22.1363 1.0568Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M29.3053 8.09998C35.5944 8.09998 38.7385 12.3764 38.7385 18.0358C38.7385 23.4439 35.2167 27.9731 28.9276 27.9731C22.6393 27.9731 19.4951 23.6959 19.4951 18.0358C19.4951 12.6277 23.0162 8.09998 29.3053 8.09998ZM28.9276 9.35793C26.1604 9.35793 25.4058 13.1311 25.4058 18.0358C25.4058 22.8149 26.6637 26.7137 29.1796 26.7137C32.0703 26.7137 32.8264 22.9405 32.8264 18.0358C32.8264 13.2567 31.5699 9.35793 28.9276 9.35793ZM75.8403 18.1622C75.8403 13.0054 79.1101 8.09998 85.5248 8.09998C90.8057 8.09998 93.3224 11.9995 93.3224 17.1555H81.6253C81.4989 21.8089 83.7628 25.2051 88.2913 25.2051C90.3038 25.2051 91.3098 24.7033 92.5685 23.8223L93.0703 24.4505C91.8124 26.2111 89.0459 27.9731 85.5248 27.9731C79.8647 27.9724 75.8403 23.9479 75.8403 18.1622ZM81.6253 15.7726L87.5366 15.6463C87.5366 13.1311 87.159 9.35793 85.0214 9.35793C82.8839 9.35793 81.7502 12.8791 81.6253 15.7726ZM108.291 9.10663C106.782 8.47693 104.77 8.09998 102.506 8.09998C97.8538 8.09998 94.9594 10.8665 94.9594 14.137C94.9594 17.4075 97.0955 18.7904 100.118 19.7971C103.261 20.9279 104.142 21.8089 104.142 23.3182C104.142 24.8275 103.01 26.2103 100.997 26.2103C98.6084 26.2103 96.8464 24.8275 95.4635 21.0536L94.5825 21.3063L94.7089 26.84C96.2181 27.4683 98.9846 27.9724 101.375 27.9724C106.28 27.9724 109.425 25.4557 109.425 21.5576C109.425 18.9161 108.041 17.4075 104.771 16.1489C101.249 14.766 99.992 13.8857 99.992 12.2501C99.992 10.6152 101.126 9.48286 102.635 9.48286C104.897 9.48286 106.407 10.8665 107.54 14.2627L108.42 14.0114L108.291 9.10663ZM55.0883 8.6033C52.9508 7.3468 49.1769 7.97433 47.1651 12.5028L47.29 8.1007L38.8642 9.73561V10.4902L39.7444 10.6159C40.8775 10.7423 41.3794 11.3705 41.5057 13.0062C41.757 16.0247 41.6314 21.3078 41.5057 23.9486C41.3794 25.4564 40.8775 26.2111 39.7444 26.3374L38.8642 26.4638V27.4697H50.5606V26.4638L49.0513 26.3374C47.7941 26.2111 47.4164 25.4564 47.29 23.9486C47.0387 21.5584 47.0387 16.7793 47.1651 13.7608C47.7933 12.8798 50.5606 12.1259 53.0757 13.7608L55.0883 8.6033Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <!-- End Star -->
-              </div>
+            <div class="mt-5">
+              <!-- Star -->
+              <svg class="w-16 h-auto text-gray-800" width="110" height="28" viewBox="0 0 110 28" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M66.6601 8.35107C64.8995 8.35107 63.5167 8.72875 62.1331 9.48265C62.1331 5.4582 62.1331 1.81143 62.2594 0.554199L53.8321 2.06273V2.81736L54.7124 2.94301C55.8433 3.19431 56.2224 3.82257 56.4715 5.33255C56.725 8.35107 56.5979 24.4496 56.4715 27.0912C58.7354 27.5945 61.1257 27.9722 63.5159 27.9722C70.1819 27.9722 74.2064 23.8213 74.2064 17.281C74.2064 12.1249 70.9366 8.35107 66.6601 8.35107ZM63.7672 26.5878C63.2639 26.5878 62.6342 26.5878 62.258 26.4629C62.1316 24.7023 62.0067 17.281 62.1316 10.7413C62.8862 10.4893 63.3888 10.3637 64.0185 10.3637C66.7872 10.3637 68.2965 13.6335 68.2965 17.6572C68.2957 22.6898 66.4088 26.5878 63.7672 26.5878ZM22.1363 1.0568H0V2.18838L1.25796 2.31403C2.89214 2.56533 3.52184 3.57127 3.77242 5.9608C4.15082 10.4886 4.02445 18.6646 3.77242 22.5619C3.52112 24.9522 2.89287 26.0845 1.25796 26.2087L0 26.4615V27.4674H14.2123V26.4615L12.703 26.2087C11.0681 26.0838 10.4392 24.9522 10.1879 22.5619C10.0615 20.9263 9.93583 18.2847 9.93583 15.0156L12.9543 15.1413C14.8413 15.1413 15.7208 16.6505 16.0985 18.7881H17.2308V9.86106H16.0985C15.7201 11.9993 14.8413 13.5078 12.9543 13.5078L9.93655 13.6342C9.93655 9.35773 10.0622 5.33328 10.1886 2.94374H14.59C17.9869 2.94374 19.7475 5.08125 21.0047 8.85513L22.2626 8.47745L22.1363 1.0568Z"
+                  fill="currentColor" />
+                <path
+                  d="M29.3053 8.09998C35.5944 8.09998 38.7385 12.3764 38.7385 18.0358C38.7385 23.4439 35.2167 27.9731 28.9276 27.9731C22.6393 27.9731 19.4951 23.6959 19.4951 18.0358C19.4951 12.6277 23.0162 8.09998 29.3053 8.09998ZM28.9276 9.35793C26.1604 9.35793 25.4058 13.1311 25.4058 18.0358C25.4058 22.8149 26.6637 26.7137 29.1796 26.7137C32.0703 26.7137 32.8264 22.9405 32.8264 18.0358C32.8264 13.2567 31.5699 9.35793 28.9276 9.35793ZM75.8403 18.1622C75.8403 13.0054 79.1101 8.09998 85.5248 8.09998C90.8057 8.09998 93.3224 11.9995 93.3224 17.1555H81.6253C81.4989 21.8089 83.7628 25.2051 88.2913 25.2051C90.3038 25.2051 91.3098 24.7033 92.5685 23.8223L93.0703 24.4505C91.8124 26.2111 89.0459 27.9731 85.5248 27.9731C79.8647 27.9724 75.8403 23.9479 75.8403 18.1622ZM81.6253 15.7726L87.5366 15.6463C87.5366 13.1311 87.159 9.35793 85.0214 9.35793C82.8839 9.35793 81.7502 12.8791 81.6253 15.7726ZM108.291 9.10663C106.782 8.47693 104.77 8.09998 102.506 8.09998C97.8538 8.09998 94.9594 10.8665 94.9594 14.137C94.9594 17.4075 97.0955 18.7904 100.118 19.7971C103.261 20.9279 104.142 21.8089 104.142 23.3182C104.142 24.8275 103.01 26.2103 100.997 26.2103C98.6084 26.2103 96.8464 24.8275 95.4635 21.0536L94.5825 21.3063L94.7089 26.84C96.2181 27.4683 98.9846 27.9724 101.375 27.9724C106.28 27.9724 109.425 25.4557 109.425 21.5576C109.425 18.9161 108.041 17.4075 104.771 16.1489C101.249 14.766 99.992 13.8857 99.992 12.2501C99.992 10.6152 101.126 9.48286 102.635 9.48286C104.897 9.48286 106.407 10.8665 107.54 14.2627L108.42 14.0114L108.291 9.10663ZM55.0883 8.6033C52.9508 7.3468 49.1769 7.97433 47.1651 12.5028L47.29 8.1007L38.8642 9.73561V10.4902L39.7444 10.6159C40.8775 10.7423 41.3794 11.3705 41.5057 13.0062C41.757 16.0247 41.6314 21.3078 41.5057 23.9486C41.3794 25.4564 40.8775 26.2111 39.7444 26.3374L38.8642 26.4638V27.4697H50.5606V26.4638L49.0513 26.3374C47.7941 26.2111 47.4164 25.4564 47.29 23.9486C47.0387 21.5584 47.0387 16.7793 47.1651 13.7608C47.7933 12.8798 50.5606 12.1259 53.0757 13.7608L55.0883 8.6033Z"
+                  fill="currentColor" />
+              </svg>
+              <!-- End Star -->
             </div>
-            <!-- End Review -->
           </div>
           <!-- End Review -->
         </div>
-        <!-- End Col -->
-
-        <div class="relative flex flex-col items-center ms-4">
-          <img
-            class="w-full rounded-md h-[32rem]"
-            src="https://images.unsplash.com/photo-1665686377065-08ba896d16fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&h=800&q=80"
-            alt="Hero Image"
-          />
-          <div
-            class="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 size-full rounded-md mt-4 -mb-4 me-4 -ms-4 lg:mt-6 lg:me-6 lg:-ms-6"
-          ></div>
-
-          <!-- SVG-->
-          <div class="absolute bottom-0 start-0">
-            <svg
-              class="w-2/3 h-auto text-white ms-auto"
-              width="630"
-              height="451"
-              viewBox="0 0 630 451"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="531"
-                y="352"
-                width="99"
-                height="99"
-                fill="currentColor"
-              />
-              <rect
-                x="140"
-                y="352"
-                width="106"
-                height="99"
-                fill="currentColor"
-              />
-              <rect
-                x="482"
-                y="402"
-                width="64"
-                height="49"
-                fill="currentColor"
-              />
-              <rect
-                x="433"
-                y="402"
-                width="63"
-                height="49"
-                fill="currentColor"
-              />
-              <rect
-                x="384"
-                y="352"
-                width="49"
-                height="50"
-                fill="currentColor"
-              />
-              <rect
-                x="531"
-                y="328"
-                width="50"
-                height="50"
-                fill="currentColor"
-              />
-              <rect x="99" y="303" width="49" height="58" fill="currentColor" />
-              <rect x="99" y="352" width="49" height="50" fill="currentColor" />
-              <rect x="99" y="392" width="49" height="59" fill="currentColor" />
-              <rect x="44" y="402" width="66" height="49" fill="currentColor" />
-              <rect
-                x="234"
-                y="402"
-                width="62"
-                height="49"
-                fill="currentColor"
-              />
-              <rect
-                x="334"
-                y="303"
-                width="50"
-                height="49"
-                fill="currentColor"
-              />
-              <rect x="581" width="49" height="49" fill="currentColor" />
-              <rect x="581" width="49" height="64" fill="currentColor" />
-              <rect
-                x="482"
-                y="123"
-                width="49"
-                height="49"
-                fill="currentColor"
-              />
-              <rect
-                x="507"
-                y="124"
-                width="49"
-                height="24"
-                fill="currentColor"
-              />
-              <rect x="531" y="49" width="99" height="99" fill="currentColor" />
-            </svg>
-          </div>
-          <!-- End SVG-->
-        </div>
-        <!-- End Col -->
+        <!-- End Review -->
       </div>
-      <!-- End Grid -->
+      <!-- End Col -->
+
+      <div class="relative flex flex-col items-center ms-4">
+        <img class="w-full rounded-md h-[32rem]"
+          src="https://images.unsplash.com/photo-1665686377065-08ba896d16fd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&h=800&q=80"
+          alt="Hero Image" />
+        <div
+          class="absolute inset-0 -z-[1] bg-gradient-to-tr from-gray-200 via-white/0 to-white/0 size-full rounded-md mt-4 -mb-4 me-4 -ms-4 lg:mt-6 lg:me-6 lg:-ms-6">
+        </div>
+
+        <!-- SVG-->
+        <div class="absolute bottom-0 start-0">
+          <svg class="w-2/3 h-auto text-white ms-auto" width="630" height="451" viewBox="0 0 630 451" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <rect x="531" y="352" width="99" height="99" fill="currentColor" />
+            <rect x="140" y="352" width="106" height="99" fill="currentColor" />
+            <rect x="482" y="402" width="64" height="49" fill="currentColor" />
+            <rect x="433" y="402" width="63" height="49" fill="currentColor" />
+            <rect x="384" y="352" width="49" height="50" fill="currentColor" />
+            <rect x="531" y="328" width="50" height="50" fill="currentColor" />
+            <rect x="99" y="303" width="49" height="58" fill="currentColor" />
+            <rect x="99" y="352" width="49" height="50" fill="currentColor" />
+            <rect x="99" y="392" width="49" height="59" fill="currentColor" />
+            <rect x="44" y="402" width="66" height="49" fill="currentColor" />
+            <rect x="234" y="402" width="62" height="49" fill="currentColor" />
+            <rect x="334" y="303" width="50" height="49" fill="currentColor" />
+            <rect x="581" width="49" height="49" fill="currentColor" />
+            <rect x="581" width="49" height="64" fill="currentColor" />
+            <rect x="482" y="123" width="49" height="49" fill="currentColor" />
+            <rect x="507" y="124" width="49" height="24" fill="currentColor" />
+            <rect x="531" y="49" width="99" height="99" fill="currentColor" />
+          </svg>
+        </div>
+        <!-- End SVG-->
+      </div>
+      <!-- End Col -->
     </div>
-    <!-- End Hero -->
+    <!-- End Grid -->
+  </div>
+  <!-- End Hero -->
 
-    <!-- /Menu  -->
+  <!-- /Menu  -->
 
-    <!-- /Offer image  -->
+  <!-- /Offer image  -->
 
-    <!-- Cons bages -->
+  <!-- Cons bages -->
 
-    <section
-      class="container flex flex-col justify-center gap-3 mx-auto my-8 lg:flex-row"
-    >
-      <!-- 1 -->
+  <section class="container flex flex-col justify-center gap-3 mx-auto my-8 lg:flex-row">
+    <!-- 1 -->
 
-      <div
-        class="flex flex-row items-center justify-center px-5 py-4 mx-5 border-2 border-yellow-400"
-      >
-        <div class="">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6 text-[#129087] lg:mr-2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
-            />
-          </svg>
-        </div>
-
-        <div class="flex flex-col justify-center ml-6">
-          <h3 class="text-xs font-bold text-left lg:text-sm">Free Delivery</h3>
-          <p class="text-xs text-center text-light lg:text-left lg:text-sm">
-            Orders from $200
-          </p>
-        </div>
+    <div class="flex flex-row items-center justify-center px-5 py-4 mx-5 border-2 border-yellow-400">
+      <div class="">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="w-6 h-6 text-[#129087] lg:mr-2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+        </svg>
       </div>
 
-      <!-- 2 -->
-
-      <div
-        class="flex flex-row items-center justify-center px-5 py-4 mx-5 border-2 border-yellow-400"
-      >
-        <div class="">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6 text-[#129087] lg:mr-2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"
-            />
-          </svg>
-        </div>
-
-        <div class="flex flex-col justify-center ml-6">
-          <h3 class="text-xs font-bold text-left lg:text-sm">Money returns</h3>
-          <p class="text-xs text-left text-light lg:text-sm">
-            30 Days guarantee
-          </p>
-        </div>
+      <div class="flex flex-col justify-center ml-6">
+        <h3 class="text-xs font-bold text-left lg:text-sm">Free Delivery</h3>
+        <p class="text-xs text-center text-light lg:text-left lg:text-sm">
+          Orders from $200
+        </p>
       </div>
-
-      <!-- 3 -->
-
-      <div
-        class="flex flex-row items-center justify-center px-5 py-4 mx-5 border-2 border-yellow-400"
-      >
-        <div class="">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6 text-[#129087] lg:mr-2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"
-            />
-          </svg>
-        </div>
-
-        <div class="flex flex-col justify-center ml-6">
-          <h3 class="text-xs font-bold text-left lg:text-sm">24/7 Supports</h3>
-          <p class="text-xs text-left text-light lg:text-sm">
-            Consumer support
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- /Cons bages  -->
-
-    <h2
-      class="pt-6 text-4xl font-bold text-teal-700 tracking-wide uppercase mx-auto mb-8 max-w-[1200px] px-5"
-    >
-      Shop by <span class="text-amber-500">Category</span>
-    </h2>
-
-    <!-- Cathegories -->
-    <section
-      class="mx-auto grid max-w-[1200px] grid-cols-2 px-5 lg:grid-cols-3 lg:gap-5"
-    >
-      <!-- 1 -->
-
-      <a href="#">
-        <div class="relative cursor-pointer">
-          <img
-            class="w-auto h-auto mx-auto duration-300 brightness-50 hover:brightness-100"
-            src="./assets/images/bedroom.png"
-            alt="bedroom cathegory image"
-          />
-
-          <p
-            class="absolute w-11/12 text-center text-white -translate-x-1/2 -translate-y-1/2 pointer-events-none top-1/2 left-1/2 lg:text-xl"
-          >
-            Bedroom
-          </p>
-        </div>
-      </a>
-
-      <!-- 2 -->
-
-      <a href="#">
-        <div class="relative cursor-pointer">
-          <img
-            class="w-auto h-auto mx-auto duration-300 brightness-50 hover:brightness-100"
-            src="./assets/images/matrass.png"
-            alt="Matrass cathegory image"
-          />
-
-          <p
-            class="absolute w-11/12 text-center text-white -translate-x-1/2 -translate-y-1/2 pointer-events-none top-1/2 left-1/2 lg:text-xl"
-          >
-            Matrass
-          </p>
-        </div>
-      </a>
-
-      <!-- 3  -->
-
-      <a href="#">
-        <div class="relative cursor-pointer">
-          <img
-            class="w-auto h-auto mx-auto duration-300 brightness-50 hover:brightness-100"
-            src="./assets/images/outdoors.png"
-            alt="kitchen cathegory image"
-          />
-
-          <p
-            class="absolute w-11/12 text-center text-white -translate-x-1/2 -translate-y-1/2 pointer-events-none top-1/2 left-1/2 lg:text-xl"
-          >
-            Outdoor
-          </p>
-        </div>
-      </a>
-
-      <!-- 4 -->
-
-      <a href="#">
-        <div class="relative cursor-pointer">
-          <img
-            class="w-auto h-auto mx-auto duration-300 brightness-50 hover:brightness-100"
-            src="./assets/images/product-bigsofa.png"
-            alt="bedroom cathegory image"
-          />
-
-          <p
-            class="absolute w-11/12 text-center text-white -translate-x-1/2 -translate-y-1/2 pointer-events-none top-1/2 left-1/2 lg:text-xl"
-          >
-            Sofa
-          </p>
-        </div>
-      </a>
-
-      <!-- 5  -->
-
-      <a href="#">
-        <div class="relative cursor-pointer">
-          <img
-            class="w-auto h-auto mx-auto duration-300 brightness-50 hover:brightness-100"
-            src="./assets/images/kitchen.png"
-            alt="bedroom cathegory image"
-          />
-
-          <p
-            class="absolute w-11/12 text-center text-white -translate-x-1/2 -translate-y-1/2 pointer-events-none top-1/2 left-1/2 lg:text-xl"
-          >
-            Kitchen
-          </p>
-        </div>
-      </a>
-
-      <!-- 6 -->
-
-      <a href="#">
-        <div class="relative cursor-pointer">
-          <img
-            class="w-auto h-auto mx-auto duration-300 brightness-50 hover:brightness-100"
-            src="./assets/images/living-room.png"
-            alt="bedroom cathegory image"
-          />
-
-          <p
-            class="absolute w-11/12 text-center text-white -translate-x-1/2 -translate-y-1/2 pointer-events-none top-1/2 left-1/2 lg:text-xl"
-          >
-            Living room
-          </p>
-        </div>
-      </a>
-    </section>
-    <!-- /Cathegories  -->
-
-    <!-- /Slider  -->
-
-    <h2
-      class="pt-12 text-2xl font-bold tracking-wide uppercase mx-auto mb-8 max-w-[1200px] px-5"
-    >
-      TOP NEW ARRIVAL
-    </h2>
-    <!-- Slider  -->
-
-    <section
-      class="splide mx-auto max-w-[1200px] px-5 py-2"
-      aria-label="Splide Basic HTML Example"
-    >
-      <div class="splide__track">
-        <ul
-          class="grid lg:grid-cols-3 gap-4 grid-cols-2 splide__list mx-auto max-w-[1200px]"
-        >
-          <!-- 1 -->
-          <li class="splide__slide group">
-            <div
-              ss="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105"
-            >
-              <!-- Product Image -->
-              <div class="relative overflow-hidden rounded-lg">
-                <img
-                  class="w-full transition-opacity duration-300 group-hover:opacity-80"
-                  src="./assets/images/nathan-fertig-FBXuXp57eM0-unsplash.jpg"
-                  alt="sofa image"
-                />
-                <span
-                  class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2"
-                >
-                  -10%
-                </span>
-              </div>
-
-              <!-- Product Details -->
-              <div class="w-full mt-3 text-center">
-                <!-- Product Name -->
-                <p
-                  class="text-lg font-medium text-gray-800 group-hover:text-[#129087]"
-                >
-                  SOFT SOFA
-                </p>
-
-                <!-- Pricing -->
-                <p class="mt-1 text-base font-medium text-[#129087]">
-                  $45.00
-                  <span class="ml-2 text-sm text-gray-500 line-through"
-                    >$50.00</span
-                  >
-                </p>
-
-                <!-- Rating -->
-                <div class="flex items-center justify-center mt-2 space-x-1">
-                  <!-- Rating Stars -->
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    class="w-4 h-4 text-yellow-400"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  <!-- Repeat the SVG for other stars -->
-                  <p class="ml-1 text-sm text-gray-400">(38 reviews)</p>
-                </div>
-
-                <!-- Add to Cart Button -->
-                <button
-                  class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600"
-                >
-                  Add to cart
-                </button>
-              </div>
-            </div>
-          </li>
-
-          <!-- 2 -->
-          <li class="splide__slide group">
-            <div
-              ss="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105"
-            >
-              <!-- Product Image -->
-              <div class="relative overflow-hidden rounded-lg">
-                <img
-                  class="w-full transition-opacity duration-300 group-hover:opacity-80"
-                  src="./assets/images/product-chair.png"
-                  alt="sofa image"
-                />
-                <span
-                  class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2"
-                >
-                  -05%
-                </span>
-              </div>
-
-              <!-- Product Details -->
-              <div class="w-full mt-3 text-center">
-                <!-- Product Name -->
-                <p
-                  class="text-lg font-medium text-gray-800 group-hover:text-[#129087]"
-                >
-                  PURPLE CHAIR
-                </p>
-
-                <!-- Pricing -->
-                <p class="mt-1 text-base font-medium text-[#129087]">
-                  $20.00
-                  <span class="ml-2 text-sm text-gray-500 line-through"
-                    >$30.00</span
-                  >
-                </p>
-
-                <!-- Rating -->
-                <div class="flex items-center justify-center mt-2 space-x-1">
-                  <!-- Rating Stars -->
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    class="w-4 h-4 text-yellow-400"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  <!-- Repeat the SVG for other stars -->
-                  <p class="ml-1 text-sm text-gray-400">(38 reviews)</p>
-                </div>
-
-                <!-- Add to Cart Button -->
-                <button
-                  class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600"
-                >
-                  Add to cart
-                </button>
-              </div>
-            </div>
-          </li>
-
-          <!-- 3 -->
-
-          <li class="splide__slide group">
-            <div
-              ss="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105"
-            >
-              <!-- Product Image -->
-              <div class="relative overflow-hidden rounded-lg">
-                <img
-                  class="w-full transition-opacity duration-300 group-hover:opacity-80"
-                  src="./assets/images/product-sofa.png"
-                  alt="sofa image"
-                />
-                <span
-                  class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2"
-                >
-                  -15%
-                </span>
-              </div>
-
-              <!-- Product Details -->
-              <div class="w-full mt-3 text-center">
-                <!-- Product Name -->
-                <p
-                  class="text-lg font-medium text-gray-800 group-hover:text-[#129087]"
-                >
-                  LARGE SOFA
-                </p>
-
-                <!-- Pricing -->
-                <p class="mt-1 text-base font-medium text-[#129087]">
-                  $70.00
-                  <span class="ml-2 text-sm text-gray-500 line-through"
-                    >$90.00</span
-                  >
-                </p>
-
-                <!-- Rating -->
-                <div class="flex items-center justify-center mt-2 space-x-1">
-                  <!-- Rating Stars -->
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    class="w-4 h-4 text-yellow-400"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  <!-- Repeat the SVG for other stars -->
-                  <p class="ml-1 text-sm text-gray-400">(50 reviews)</p>
-                </div>
-
-                <!-- Add to Cart Button -->
-                <button
-                  class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600"
-                >
-                  Add to cart
-                </button>
-              </div>
-            </div>
-          </li>
-          <!-- 4 -->
-
-          <li class="splide__slide group">
-            <div
-              ss="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105"
-            >
-              <!-- Product Image -->
-              <div class="relative overflow-hidden rounded-lg">
-                <img
-                  class="w-full transition-opacity duration-300 group-hover:opacity-80"
-                  src="./assets/images/kitchen.png"
-                  alt="sofa image"
-                />
-                <span
-                  class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2"
-                >
-                  -10%
-                </span>
-              </div>
-
-              <!-- Product Details -->
-              <div class="w-full mt-3 text-center">
-                <!-- Product Name -->
-                <p
-                  class="text-lg font-medium text-gray-800 group-hover:text-[#129087]"
-                >
-                  PERFECTO KITCHEN
-                </p>
-
-                <!-- Pricing -->
-                <p class="mt-1 text-base font-medium text-[#129087]">
-                  $130.00
-                  <span class="ml-2 text-sm text-gray-500 line-through"
-                    >$150.00</span
-                  >
-                </p>
-
-                <!-- Rating -->
-                <div class="flex items-center justify-center mt-2 space-x-1">
-                  <!-- Rating Stars -->
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    class="w-4 h-4 text-yellow-400"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  <!-- Repeat the SVG for other stars -->
-                  <p class="ml-1 text-sm text-gray-400">(150 reviews)</p>
-                </div>
-
-                <!-- Add to Cart Button -->
-                <button
-                  class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600"
-                >
-                  Add to cart
-                </button>
-              </div>
-            </div>
-          </li>
-
-          <!-- 5 -->
-
-          <li class="splide__slide group">
-            <div
-              ss="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105"
-            >
-              <!-- Product Image -->
-              <div class="relative overflow-hidden rounded-lg">
-                <img
-                  class="w-full transition-opacity duration-300 group-hover:opacity-80"
-                  src="./assets/images/matrass.png"
-                  alt="sofa image"
-                />
-                <span
-                  class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2"
-                >
-                  -05%
-                </span>
-              </div>
-
-              <!-- Product Details -->
-              <div class="w-full mt-3 text-center">
-                <!-- Product Name -->
-                <p
-                  class="text-lg font-medium text-gray-800 group-hover:text-[#129087]"
-                >
-                  MATRASS COMFORT +
-                </p>
-
-                <!-- Pricing -->
-                <p class="mt-1 text-base font-medium text-[#129087]">
-                  $140.00
-                  <span class="ml-2 text-sm text-gray-500 line-through"
-                    >$150.00</span
-                  >
-                </p>
-
-                <!-- Rating -->
-                <div class="flex items-center justify-center mt-2 space-x-1">
-                  <!-- Rating Stars -->
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    class="w-4 h-4 text-yellow-400"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  <!-- Repeat the SVG for other stars -->
-                  <p class="ml-1 text-sm text-gray-400">(300 reviews)</p>
-                </div>
-
-                <!-- Add to Cart Button -->
-                <button
-                  class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600"
-                >
-                  Add to cart
-                </button>
-              </div>
-            </div>
-          </li>
-
-          <!-- 6 -->
-
-          <li class="splide__slide group">
-            <div
-              ss="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105"
-            >
-              <!-- Product Image -->
-              <div class="relative overflow-hidden rounded-lg">
-                <img
-                  class="w-full transition-opacity duration-300 group-hover:opacity-80"
-                  src="./assets/images/bedroom.png"
-                  alt="sofa image"
-                />
-                <span
-                  class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2"
-                >
-                  -10%
-                </span>
-              </div>
-
-              <!-- Product Details -->
-              <div class="w-full mt-3 text-center">
-                <!-- Product Name -->
-                <p
-                  class="text-lg font-medium text-gray-800 group-hover:text-[#129087]"
-                >
-                  QUEEN SIZE BED
-                </p>
-
-                <!-- Pricing -->
-                <p class="mt-1 text-base font-medium text-[#129087]">
-                  $190.00
-                  <span class="ml-2 text-sm text-gray-500 line-through"
-                    >$200.00</span
-                  >
-                </p>
-
-                <!-- Rating -->
-                <div class="flex items-center justify-center mt-2 space-x-1">
-                  <!-- Rating Stars -->
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    class="w-4 h-4 text-yellow-400"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  <!-- Repeat the SVG for other stars -->
-                  <p class="ml-1 text-sm text-gray-400">(600 reviews)</p>
-                </div>
-
-                <!-- Add to Cart Button -->
-                <button
-                  class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600"
-                >
-                  Add to cart
-                </button>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Special offer card -->
-
-    <div class="mx-auto max-w-[1200px] px-5">
-      <section
-        class="mt-10 flex max-w-[1200px] justify-between bg-teal-600 px-5"
-      >
-        <div class="px-3 py-8 lg:px-16">
-          <p class="text-white">ONLINE EXCLUSIVE</p>
-          <h2 class="pt-6 text-5xl font-bold text-yellow-400">15% OFF</h2>
-          <p class="pt-4 text-white">
-            ACCENT CHAIRS, <br />
-            TABLES & OTTOMANS
-          </p>
-          <button
-            href="#"
-            class="px-4 py-2 mt-6 duration-100 bg-amber-400 hover:bg-yellow-300"
-          >
-            Shop now
-          </button>
-        </div>
-
-        <img
-          class="-mr-5 hidden w-[550px] object-cover md:block"
-          src="./assets/images/sale-bage.jpeg"
-          alt="Rainbow credit card with macbook on a background"
-        />
-      </section>
     </div>
 
-    <!-- /Special offer card -->
+    <!-- 2 -->
 
-    <p
-      class="pt-12 text-2xl font-bold tracking-wide uppercase mx-auto mb-8 max-w-[1200px] px-5"
-    >
-      RECOMMENDED FOR YOU
-    </p>
+    <div class="flex flex-row items-center justify-center px-5 py-4 mx-5 border-2 border-yellow-400">
+      <div class="">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="w-6 h-6 text-[#129087] lg:mr-2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+        </svg>
+      </div>
 
-    <!-- Recommendations -->
-    <section>
-      <ul
-        class="no-bullets mx-auto grid max-w-[1200px] grid-cols-2 gap-3 px-5 pb-10 lg:grid-cols-4"
-      >
+      <div class="flex flex-col justify-center ml-6">
+        <h3 class="text-xs font-bold text-left lg:text-sm">Money returns</h3>
+        <p class="text-xs text-left text-light lg:text-sm">
+          30 Days guarantee
+        </p>
+      </div>
+    </div>
+
+    <!-- 3 -->
+
+    <div class="flex flex-row items-center justify-center px-5 py-4 mx-5 border-2 border-yellow-400">
+      <div class="">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="w-6 h-6 text-[#129087] lg:mr-2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+        </svg>
+      </div>
+
+      <div class="flex flex-col justify-center ml-6">
+        <h3 class="text-xs font-bold text-left lg:text-sm">24/7 Supports</h3>
+        <p class="text-xs text-left text-light lg:text-sm">
+          Consumer support
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- /Cons bages  -->
+
+  <h2 class="pt-6 text-4xl font-bold text-teal-700 tracking-wide uppercase mx-auto mb-8 max-w-[1200px] px-5">
+    Shop by <span class="text-amber-500">Category</span>
+  </h2>
+
+  <!-- Cathegories -->
+  <section class="mx-auto grid max-w-[1200px] grid-cols-2 px-5 lg:grid-cols-3 lg:gap-5">
+    <!-- 1 -->
+
+    <a href="#">
+      <div class="relative cursor-pointer">
+        <img class="w-auto h-auto mx-auto duration-300 brightness-50 hover:brightness-100"
+          src="./assets/images/bedroom.png" alt="bedroom cathegory image" />
+
+        <p
+          class="absolute w-11/12 text-center text-white -translate-x-1/2 -translate-y-1/2 pointer-events-none top-1/2 left-1/2 lg:text-xl">
+          Bedroom
+        </p>
+      </div>
+    </a>
+
+    <!-- 2 -->
+
+    <a href="#">
+      <div class="relative cursor-pointer">
+        <img class="w-auto h-auto mx-auto duration-300 brightness-50 hover:brightness-100"
+          src="./assets/images/matrass.png" alt="Matrass cathegory image" />
+
+        <p
+          class="absolute w-11/12 text-center text-white -translate-x-1/2 -translate-y-1/2 pointer-events-none top-1/2 left-1/2 lg:text-xl">
+          Matrass
+        </p>
+      </div>
+    </a>
+
+    <!-- 3  -->
+
+    <a href="#">
+      <div class="relative cursor-pointer">
+        <img class="w-auto h-auto mx-auto duration-300 brightness-50 hover:brightness-100"
+          src="./assets/images/outdoors.png" alt="kitchen cathegory image" />
+
+        <p
+          class="absolute w-11/12 text-center text-white -translate-x-1/2 -translate-y-1/2 pointer-events-none top-1/2 left-1/2 lg:text-xl">
+          Outdoor
+        </p>
+      </div>
+    </a>
+
+    <!-- 4 -->
+
+    <a href="#">
+      <div class="relative cursor-pointer">
+        <img class="w-auto h-auto mx-auto duration-300 brightness-50 hover:brightness-100"
+          src="./assets/images/product-bigsofa.png" alt="bedroom cathegory image" />
+
+        <p
+          class="absolute w-11/12 text-center text-white -translate-x-1/2 -translate-y-1/2 pointer-events-none top-1/2 left-1/2 lg:text-xl">
+          Sofa
+        </p>
+      </div>
+    </a>
+
+    <!-- 5  -->
+
+    <a href="#">
+      <div class="relative cursor-pointer">
+        <img class="w-auto h-auto mx-auto duration-300 brightness-50 hover:brightness-100"
+          src="./assets/images/kitchen.png" alt="bedroom cathegory image" />
+
+        <p
+          class="absolute w-11/12 text-center text-white -translate-x-1/2 -translate-y-1/2 pointer-events-none top-1/2 left-1/2 lg:text-xl">
+          Kitchen
+        </p>
+      </div>
+    </a>
+
+    <!-- 6 -->
+
+    <a href="#">
+      <div class="relative cursor-pointer">
+        <img class="w-auto h-auto mx-auto duration-300 brightness-50 hover:brightness-100"
+          src="./assets/images/living-room.png" alt="bedroom cathegory image" />
+
+        <p
+          class="absolute w-11/12 text-center text-white -translate-x-1/2 -translate-y-1/2 pointer-events-none top-1/2 left-1/2 lg:text-xl">
+          Living room
+        </p>
+      </div>
+    </a>
+  </section>
+  <!-- /Cathegories  -->
+
+  <!-- /Slider  -->
+
+  <h2 class="pt-12 text-2xl font-bold tracking-wide uppercase mx-auto mb-8 max-w-[1200px] px-5">
+    TOP NEW ARRIVAL
+  </h2>
+  <!-- Slider  -->
+
+  <section class="splide mx-auto max-w-[1200px] px-5 py-2" aria-label="Splide Basic HTML Example">
+    <div class="splide__track">
+      <ul class="grid lg:grid-cols-3 gap-4 grid-cols-2 splide__list mx-auto max-w-[1200px]">
         <!-- 1 -->
-        <li class="">
+        <li class="splide__slide group">
           <div
-            class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105"
-          >
+            ss="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105">
             <!-- Product Image -->
             <div class="relative overflow-hidden rounded-lg">
-              <img
-                class="w-full transition-opacity duration-300 group-hover:opacity-80"
-                src="./assets/images/product-chair.png"
-                alt="sofa image"
-              />
-              <span
-                class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2"
-              >
-                -05%
+              <img class="w-full transition-opacity duration-300 group-hover:opacity-80"
+                src="./assets/images/nathan-fertig-FBXuXp57eM0-unsplash.jpg" alt="sofa image" />
+              <span class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2">
+                -10%
               </span>
             </div>
 
             <!-- Product Details -->
             <div class="w-full mt-3 text-center">
               <!-- Product Name -->
-              <p
-                class="text-lg font-medium text-gray-800 group-hover:text-[#129087]"
-              >
-                PURPLE CHAIR
+              <p class="text-lg font-medium text-gray-800 group-hover:text-[#129087]">
+                SOFT SOFA
               </p>
 
               <!-- Pricing -->
               <p class="mt-1 text-base font-medium text-[#129087]">
-                $20.00
-                <span class="ml-2 text-sm text-gray-500 line-through"
-                  >$30.00</span
-                >
+                $45.00
+                <span class="ml-2 text-sm text-gray-500 line-through">$50.00</span>
               </p>
 
               <!-- Rating -->
               <div class="flex items-center justify-center mt-2 space-x-1">
                 <!-- Rating Stars -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="w-4 h-4 text-yellow-400"
-                >
-                  <path
-                    fill-rule="evenodd"
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                  class="w-4 h-4 text-yellow-400">
+                  <path fill-rule="evenodd"
                     d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                    clip-rule="evenodd"
-                  />
+                    clip-rule="evenodd" />
                 </svg>
                 <!-- Repeat the SVG for other stars -->
                 <p class="ml-1 text-sm text-gray-400">(38 reviews)</p>
@@ -1708,8 +733,7 @@
 
               <!-- Add to Cart Button -->
               <button
-                class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600"
-              >
+                class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600">
                 Add to cart
               </button>
             </div>
@@ -1719,62 +743,45 @@
         <!-- 2 -->
         <li class="splide__slide group">
           <div
-            class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105"
-          >
+            ss="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105">
             <!-- Product Image -->
             <div class="relative overflow-hidden rounded-lg">
-              <img
-                class="w-full transition-opacity duration-300 group-hover:opacity-80"
-                src="./assets/images/product-sofa.png"
-                alt="sofa image"
-              />
-              <span
-                class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2"
-              >
-                -15%
+              <img class="w-full transition-opacity duration-300 group-hover:opacity-80"
+                src="./assets/images/product-chair.png" alt="sofa image" />
+              <span class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2">
+                -05%
               </span>
             </div>
 
             <!-- Product Details -->
             <div class="w-full mt-3 text-center">
               <!-- Product Name -->
-              <p
-                class="text-lg font-medium text-gray-800 group-hover:text-[#129087]"
-              >
-                LARGE SOFA
+              <p class="text-lg font-medium text-gray-800 group-hover:text-[#129087]">
+                PURPLE CHAIR
               </p>
 
               <!-- Pricing -->
               <p class="mt-1 text-base font-medium text-[#129087]">
-                $70.00
-                <span class="ml-2 text-sm text-gray-500 line-through"
-                  >$90.00</span
-                >
+                $20.00
+                <span class="ml-2 text-sm text-gray-500 line-through">$30.00</span>
               </p>
 
               <!-- Rating -->
               <div class="flex items-center justify-center mt-2 space-x-1">
                 <!-- Rating Stars -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="w-4 h-4 text-yellow-400"
-                >
-                  <path
-                    fill-rule="evenodd"
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                  class="w-4 h-4 text-yellow-400">
+                  <path fill-rule="evenodd"
                     d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                    clip-rule="evenodd"
-                  />
+                    clip-rule="evenodd" />
                 </svg>
                 <!-- Repeat the SVG for other stars -->
-                <p class="ml-1 text-sm text-gray-400">(50 reviews)</p>
+                <p class="ml-1 text-sm text-gray-400">(38 reviews)</p>
               </div>
 
               <!-- Add to Cart Button -->
               <button
-                class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600"
-              >
+                class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600">
                 Add to cart
               </button>
             </div>
@@ -1782,86 +789,15 @@
         </li>
 
         <!-- 3 -->
-        <li class="splide__slide group">
-          <div
-            class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105"
-          >
-            <!-- Product Image -->
-            <div class="relative overflow-hidden rounded-lg">
-              <img
-                class="w-full transition-opacity duration-300 group-hover:opacity-80"
-                src="./assets/images/kitchen.png"
-                alt="sofa image"
-              />
-              <span
-                class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2"
-              >
-                -10%
-              </span>
-            </div>
-
-            <!-- Product Details -->
-            <div class="w-full mt-3 text-center">
-              <!-- Product Name -->
-              <p
-                class="text-lg font-medium text-gray-800 group-hover:text-[#129087]"
-              >
-                PERFECTO KITCHEN
-              </p>
-
-              <!-- Pricing -->
-              <p class="mt-1 text-base font-medium text-[#129087]">
-                $130.00
-                <span class="ml-2 text-sm text-gray-500 line-through"
-                  >$150.00</span
-                >
-              </p>
-
-              <!-- Rating -->
-              <div class="flex items-center justify-center mt-2 space-x-1">
-                <!-- Rating Stars -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="w-4 h-4 text-yellow-400"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                <!-- Repeat the SVG for other stars -->
-                <p class="ml-1 text-sm text-gray-400">(150 reviews)</p>
-              </div>
-
-              <!-- Add to Cart Button -->
-              <button
-                class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600"
-              >
-                Add to cart
-              </button>
-            </div>
-          </div>
-        </li>
-
-        <!-- 4 -->
 
         <li class="splide__slide group">
           <div
-            class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105"
-          >
+            ss="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105">
             <!-- Product Image -->
             <div class="relative overflow-hidden rounded-lg">
-              <img
-                class="w-full transition-opacity duration-300 group-hover:opacity-80"
-                src="./assets/images/living-room.png"
-                alt="sofa image"
-              />
-              <span
-                class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2"
-              >
+              <img class="w-full transition-opacity duration-300 group-hover:opacity-80"
+                src="./assets/images/product-sofa.png" alt="sofa image" />
+              <span class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2">
                 -15%
               </span>
             </div>
@@ -1869,43 +805,80 @@
             <!-- Product Details -->
             <div class="w-full mt-3 text-center">
               <!-- Product Name -->
-              <p
-                class="text-lg font-medium text-gray-800 group-hover:text-[#129087]"
-              >
-                GUYER ROOM
+              <p class="text-lg font-medium text-gray-800 group-hover:text-[#129087]">
+                LARGE SOFA
               </p>
 
               <!-- Pricing -->
               <p class="mt-1 text-base font-medium text-[#129087]">
-                $245.00
-                <span class="ml-2 text-sm text-gray-500 line-through"
-                  >$280.00</span
-                >
+                $70.00
+                <span class="ml-2 text-sm text-gray-500 line-through">$90.00</span>
               </p>
 
               <!-- Rating -->
               <div class="flex items-center justify-center mt-2 space-x-1">
                 <!-- Rating Stars -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="w-4 h-4 text-yellow-400"
-                >
-                  <path
-                    fill-rule="evenodd"
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                  class="w-4 h-4 text-yellow-400">
+                  <path fill-rule="evenodd"
                     d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                    clip-rule="evenodd"
-                  />
+                    clip-rule="evenodd" />
                 </svg>
                 <!-- Repeat the SVG for other stars -->
-                <p class="ml-1 text-sm text-gray-400">(269 reviews)</p>
+                <p class="ml-1 text-sm text-gray-400">(50 reviews)</p>
               </div>
 
               <!-- Add to Cart Button -->
               <button
-                class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600"
-              >
+                class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600">
+                Add to cart
+              </button>
+            </div>
+          </div>
+        </li>
+        <!-- 4 -->
+
+        <li class="splide__slide group">
+          <div
+            ss="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105">
+            <!-- Product Image -->
+            <div class="relative overflow-hidden rounded-lg">
+              <img class="w-full transition-opacity duration-300 group-hover:opacity-80"
+                src="./assets/images/kitchen.png" alt="sofa image" />
+              <span class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2">
+                -10%
+              </span>
+            </div>
+
+            <!-- Product Details -->
+            <div class="w-full mt-3 text-center">
+              <!-- Product Name -->
+              <p class="text-lg font-medium text-gray-800 group-hover:text-[#129087]">
+                PERFECTO KITCHEN
+              </p>
+
+              <!-- Pricing -->
+              <p class="mt-1 text-base font-medium text-[#129087]">
+                $130.00
+                <span class="ml-2 text-sm text-gray-500 line-through">$150.00</span>
+              </p>
+
+              <!-- Rating -->
+              <div class="flex items-center justify-center mt-2 space-x-1">
+                <!-- Rating Stars -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                  class="w-4 h-4 text-yellow-400">
+                  <path fill-rule="evenodd"
+                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                    clip-rule="evenodd" />
+                </svg>
+                <!-- Repeat the SVG for other stars -->
+                <p class="ml-1 text-sm text-gray-400">(150 reviews)</p>
+              </div>
+
+              <!-- Add to Cart Button -->
+              <button
+                class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600">
                 Add to cart
               </button>
             </div>
@@ -1913,64 +886,48 @@
         </li>
 
         <!-- 5 -->
+
         <li class="splide__slide group">
           <div
-            class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105"
-          >
+            ss="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105">
             <!-- Product Image -->
             <div class="relative overflow-hidden rounded-lg">
-              <img
-                class="w-full transition-opacity duration-300 group-hover:opacity-80"
-                src="./assets/images/bedroom.png"
-                alt="sofa image"
-              />
-              <span
-                class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2"
-              >
-                -20%
+              <img class="w-full transition-opacity duration-300 group-hover:opacity-80"
+                src="./assets/images/matrass.png" alt="sofa image" />
+              <span class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2">
+                -05%
               </span>
             </div>
 
             <!-- Product Details -->
             <div class="w-full mt-3 text-center">
               <!-- Product Name -->
-              <p
-                class="text-lg font-medium text-gray-800 group-hover:text-[#129087]"
-              >
-                BEDROOM
+              <p class="text-lg font-medium text-gray-800 group-hover:text-[#129087]">
+                MATRASS COMFORT +
               </p>
 
               <!-- Pricing -->
               <p class="mt-1 text-base font-medium text-[#129087]">
-                $450.00
-                <span class="ml-2 text-sm text-gray-500 line-through"
-                  >$500.00</span
-                >
+                $140.00
+                <span class="ml-2 text-sm text-gray-500 line-through">$150.00</span>
               </p>
 
               <!-- Rating -->
               <div class="flex items-center justify-center mt-2 space-x-1">
                 <!-- Rating Stars -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="w-4 h-4 text-yellow-400"
-                >
-                  <path
-                    fill-rule="evenodd"
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                  class="w-4 h-4 text-yellow-400">
+                  <path fill-rule="evenodd"
                     d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                    clip-rule="evenodd"
-                  />
+                    clip-rule="evenodd" />
                 </svg>
                 <!-- Repeat the SVG for other stars -->
-                <p class="ml-1 text-sm text-gray-400">(500 reviews)</p>
+                <p class="ml-1 text-sm text-gray-400">(300 reviews)</p>
               </div>
 
               <!-- Add to Cart Button -->
               <button
-                class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600"
-              >
+                class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600">
                 Add to cart
               </button>
             </div>
@@ -1981,82 +938,12 @@
 
         <li class="splide__slide group">
           <div
-            class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105"
-          >
+            ss="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105">
             <!-- Product Image -->
             <div class="relative overflow-hidden rounded-lg">
-              <img
-                class="w-full transition-opacity duration-300 group-hover:opacity-80"
-                src="./assets/images/header-bg.jpeg"
-                alt="sofa image"
-              />
-              <span
-                class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2"
-              >
-                -05%
-              </span>
-            </div>
-
-            <!-- Product Details -->
-            <div class="w-full mt-3 text-center">
-              <!-- Product Name -->
-              <p
-                class="text-lg font-medium text-gray-800 group-hover:text-[#129087]"
-              >
-                LIVING GUYER
-              </p>
-
-              <!-- Pricing -->
-              <p class="mt-1 text-base font-medium text-[#129087]">
-                $150.00
-                <span class="ml-2 text-sm text-gray-500 line-through"
-                  >$142.00</span
-                >
-              </p>
-
-              <!-- Rating -->
-              <div class="flex items-center justify-center mt-2 space-x-1">
-                <!-- Rating Stars -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="w-4 h-4 text-yellow-400"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                <!-- Repeat the SVG for other stars -->
-                <p class="ml-1 text-sm text-gray-400">(200 reviews)</p>
-              </div>
-
-              <!-- Add to Cart Button -->
-              <button
-                class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600"
-              >
-                Add to cart
-              </button>
-            </div>
-          </div>
-        </li>
-
-        <li class="splide__slide group">
-          <div
-            class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105"
-          >
-            <!-- Product Image -->
-            <div class="relative overflow-hidden rounded-lg">
-              <img
-                class="w-full transition-opacity duration-300 group-hover:opacity-80"
-                src="./assets/images/outdoors.png"
-                alt="sofa image"
-              />
-              <span
-                class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2"
-              >
+              <img class="w-full transition-opacity duration-300 group-hover:opacity-80"
+                src="./assets/images/bedroom.png" alt="sofa image" />
+              <span class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2">
                 -10%
               </span>
             </div>
@@ -2064,239 +951,552 @@
             <!-- Product Details -->
             <div class="w-full mt-3 text-center">
               <!-- Product Name -->
-              <p
-                class="text-lg font-medium text-gray-800 group-hover:text-[#129087]"
-              >
-                STREET CHAIR
+              <p class="text-lg font-medium text-gray-800 group-hover:text-[#129087]">
+                QUEEN SIZE BED
               </p>
 
               <!-- Pricing -->
               <p class="mt-1 text-base font-medium text-[#129087]">
-                $50.00
-                <span class="ml-2 text-sm text-gray-500 line-through"
-                  >$45.00</span
-                >
+                $190.00
+                <span class="ml-2 text-sm text-gray-500 line-through">$200.00</span>
               </p>
 
               <!-- Rating -->
               <div class="flex items-center justify-center mt-2 space-x-1">
                 <!-- Rating Stars -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="w-4 h-4 text-yellow-400"
-                >
-                  <path
-                    fill-rule="evenodd"
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                  class="w-4 h-4 text-yellow-400">
+                  <path fill-rule="evenodd"
                     d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                    clip-rule="evenodd"
-                  />
+                    clip-rule="evenodd" />
                 </svg>
                 <!-- Repeat the SVG for other stars -->
-                <p class="ml-1 text-sm text-gray-400">(700 reviews)</p>
+                <p class="ml-1 text-sm text-gray-400">(600 reviews)</p>
               </div>
 
               <!-- Add to Cart Button -->
               <button
-                class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600"
-              >
-                Add to cart
-              </button>
-            </div>
-          </div>
-        </li>
-
-        <li class="splide__slide group">
-          <div
-            class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105"
-          >
-            <!-- Product Image -->
-            <div class="relative overflow-hidden rounded-lg">
-              <img
-                class="w-full transition-opacity duration-300 group-hover:opacity-80"
-                src="./assets/images/product-bigsofa.png"
-                alt="sofa image"
-              />
-              <span
-                class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2"
-              >
-                -10%
-              </span>
-            </div>
-
-            <!-- Product Details -->
-            <div class="w-full mt-3 text-center">
-              <!-- Product Name -->
-              <p
-                class="text-lg font-medium text-gray-800 group-hover:text-[#129087]"
-              >
-                WHITE SOFA
-              </p>
-
-              <!-- Pricing -->
-              <p class="mt-1 text-base font-medium text-[#129087]">
-                $45.00
-                <span class="ml-2 text-sm text-gray-500 line-through"
-                  >$50.00</span
-                >
-              </p>
-
-              <!-- Rating -->
-              <div class="flex items-center justify-center mt-2 space-x-1">
-                <!-- Rating Stars -->
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="w-4 h-4 text-yellow-400"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-                <!-- Repeat the SVG for other stars -->
-                <p class="ml-1 text-sm text-gray-400">(38 reviews)</p>
-              </div>
-
-              <!-- Add to Cart Button -->
-              <button
-                class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600"
-              >
+                class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600">
                 Add to cart
               </button>
             </div>
           </div>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <!-- Special offer card -->
+
+  <div class="mx-auto max-w-[1200px] px-5">
+    <section class="mt-10 flex max-w-[1200px] justify-between bg-teal-600 px-5">
+      <div class="px-3 py-8 lg:px-16">
+        <p class="text-white">ONLINE EXCLUSIVE</p>
+        <h2 class="pt-6 text-5xl font-bold text-yellow-400">15% OFF</h2>
+        <p class="pt-4 text-white">
+          ACCENT CHAIRS, <br />
+          TABLES & OTTOMANS
+        </p>
+        <button href="#" class="px-4 py-2 mt-6 duration-100 bg-amber-400 hover:bg-yellow-300">
+          Shop now
+        </button>
+      </div>
+
+      <img class="-mr-5 hidden w-[550px] object-cover md:block" src="./assets/images/sale-bage.jpeg"
+        alt="Rainbow credit card with macbook on a background" />
     </section>
-    <!-- /Recommendations -->
+  </div>
 
-    <!-- Desktop Footer  -->
+  <!-- /Special offer card -->
 
-    <footer
-      class="mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row"
-    >
-      <div class="w-1/2">
-        <a href="index.html" class="flex items-center py-3">
-          <span class="text-5xl font-bold text-teal-600 drop-shadow-md">
-            Ali
-          </span>
-          <span
-            class="pt-1 text-3xl font-light tracking-wide text-gray-700 uppercase"
-          >
-            Commerce
-          </span>
+  <p class="pt-12 text-2xl font-bold tracking-wide uppercase mx-auto mb-8 max-w-[1200px] px-5">
+    RECOMMENDED FOR YOU
+  </p>
 
-          <!-- <img
+  <!-- Recommendations -->
+  <section>
+    <ul class="no-bullets mx-auto grid max-w-[1200px] grid-cols-2 gap-3 px-5 pb-10 lg:grid-cols-4">
+      <!-- 1 -->
+      <li class="">
+        <div
+          class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105">
+          <!-- Product Image -->
+          <div class="relative overflow-hidden rounded-lg">
+            <img class="w-full transition-opacity duration-300 group-hover:opacity-80"
+              src="./assets/images/product-chair.png" alt="sofa image" />
+            <span class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2">
+              -05%
+            </span>
+          </div>
+
+          <!-- Product Details -->
+          <div class="w-full mt-3 text-center">
+            <!-- Product Name -->
+            <p class="text-lg font-medium text-gray-800 group-hover:text-[#129087]">
+              PURPLE CHAIR
+            </p>
+
+            <!-- Pricing -->
+            <p class="mt-1 text-base font-medium text-[#129087]">
+              $20.00
+              <span class="ml-2 text-sm text-gray-500 line-through">$30.00</span>
+            </p>
+
+            <!-- Rating -->
+            <div class="flex items-center justify-center mt-2 space-x-1">
+              <!-- Rating Stars -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                class="w-4 h-4 text-yellow-400">
+                <path fill-rule="evenodd"
+                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                  clip-rule="evenodd" />
+              </svg>
+              <!-- Repeat the SVG for other stars -->
+              <p class="ml-1 text-sm text-gray-400">(38 reviews)</p>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button
+              class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600">
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2 -->
+      <li class="splide__slide group">
+        <div
+          class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105">
+          <!-- Product Image -->
+          <div class="relative overflow-hidden rounded-lg">
+            <img class="w-full transition-opacity duration-300 group-hover:opacity-80"
+              src="./assets/images/product-sofa.png" alt="sofa image" />
+            <span class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2">
+              -15%
+            </span>
+          </div>
+
+          <!-- Product Details -->
+          <div class="w-full mt-3 text-center">
+            <!-- Product Name -->
+            <p class="text-lg font-medium text-gray-800 group-hover:text-[#129087]">
+              LARGE SOFA
+            </p>
+
+            <!-- Pricing -->
+            <p class="mt-1 text-base font-medium text-[#129087]">
+              $70.00
+              <span class="ml-2 text-sm text-gray-500 line-through">$90.00</span>
+            </p>
+
+            <!-- Rating -->
+            <div class="flex items-center justify-center mt-2 space-x-1">
+              <!-- Rating Stars -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                class="w-4 h-4 text-yellow-400">
+                <path fill-rule="evenodd"
+                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                  clip-rule="evenodd" />
+              </svg>
+              <!-- Repeat the SVG for other stars -->
+              <p class="ml-1 text-sm text-gray-400">(50 reviews)</p>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button
+              class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600">
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </li>
+
+      <!-- 3 -->
+      <li class="splide__slide group">
+        <div
+          class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105">
+          <!-- Product Image -->
+          <div class="relative overflow-hidden rounded-lg">
+            <img class="w-full transition-opacity duration-300 group-hover:opacity-80" src="./assets/images/kitchen.png"
+              alt="sofa image" />
+            <span class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2">
+              -10%
+            </span>
+          </div>
+
+          <!-- Product Details -->
+          <div class="w-full mt-3 text-center">
+            <!-- Product Name -->
+            <p class="text-lg font-medium text-gray-800 group-hover:text-[#129087]">
+              PERFECTO KITCHEN
+            </p>
+
+            <!-- Pricing -->
+            <p class="mt-1 text-base font-medium text-[#129087]">
+              $130.00
+              <span class="ml-2 text-sm text-gray-500 line-through">$150.00</span>
+            </p>
+
+            <!-- Rating -->
+            <div class="flex items-center justify-center mt-2 space-x-1">
+              <!-- Rating Stars -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                class="w-4 h-4 text-yellow-400">
+                <path fill-rule="evenodd"
+                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                  clip-rule="evenodd" />
+              </svg>
+              <!-- Repeat the SVG for other stars -->
+              <p class="ml-1 text-sm text-gray-400">(150 reviews)</p>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button
+              class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600">
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </li>
+
+      <!-- 4 -->
+
+      <li class="splide__slide group">
+        <div
+          class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105">
+          <!-- Product Image -->
+          <div class="relative overflow-hidden rounded-lg">
+            <img class="w-full transition-opacity duration-300 group-hover:opacity-80"
+              src="./assets/images/living-room.png" alt="sofa image" />
+            <span class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2">
+              -15%
+            </span>
+          </div>
+
+          <!-- Product Details -->
+          <div class="w-full mt-3 text-center">
+            <!-- Product Name -->
+            <p class="text-lg font-medium text-gray-800 group-hover:text-[#129087]">
+              GUYER ROOM
+            </p>
+
+            <!-- Pricing -->
+            <p class="mt-1 text-base font-medium text-[#129087]">
+              $245.00
+              <span class="ml-2 text-sm text-gray-500 line-through">$280.00</span>
+            </p>
+
+            <!-- Rating -->
+            <div class="flex items-center justify-center mt-2 space-x-1">
+              <!-- Rating Stars -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                class="w-4 h-4 text-yellow-400">
+                <path fill-rule="evenodd"
+                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                  clip-rule="evenodd" />
+              </svg>
+              <!-- Repeat the SVG for other stars -->
+              <p class="ml-1 text-sm text-gray-400">(269 reviews)</p>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button
+              class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600">
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </li>
+
+      <!-- 5 -->
+      <li class="splide__slide group">
+        <div
+          class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105">
+          <!-- Product Image -->
+          <div class="relative overflow-hidden rounded-lg">
+            <img class="w-full transition-opacity duration-300 group-hover:opacity-80" src="./assets/images/bedroom.png"
+              alt="sofa image" />
+            <span class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2">
+              -20%
+            </span>
+          </div>
+
+          <!-- Product Details -->
+          <div class="w-full mt-3 text-center">
+            <!-- Product Name -->
+            <p class="text-lg font-medium text-gray-800 group-hover:text-[#129087]">
+              BEDROOM
+            </p>
+
+            <!-- Pricing -->
+            <p class="mt-1 text-base font-medium text-[#129087]">
+              $450.00
+              <span class="ml-2 text-sm text-gray-500 line-through">$500.00</span>
+            </p>
+
+            <!-- Rating -->
+            <div class="flex items-center justify-center mt-2 space-x-1">
+              <!-- Rating Stars -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                class="w-4 h-4 text-yellow-400">
+                <path fill-rule="evenodd"
+                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                  clip-rule="evenodd" />
+              </svg>
+              <!-- Repeat the SVG for other stars -->
+              <p class="ml-1 text-sm text-gray-400">(500 reviews)</p>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button
+              class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600">
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </li>
+
+      <!-- 6 -->
+
+      <li class="splide__slide group">
+        <div
+          class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105">
+          <!-- Product Image -->
+          <div class="relative overflow-hidden rounded-lg">
+            <img class="w-full transition-opacity duration-300 group-hover:opacity-80"
+              src="./assets/images/header-bg.jpeg" alt="sofa image" />
+            <span class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2">
+              -05%
+            </span>
+          </div>
+
+          <!-- Product Details -->
+          <div class="w-full mt-3 text-center">
+            <!-- Product Name -->
+            <p class="text-lg font-medium text-gray-800 group-hover:text-[#129087]">
+              LIVING GUYER
+            </p>
+
+            <!-- Pricing -->
+            <p class="mt-1 text-base font-medium text-[#129087]">
+              $150.00
+              <span class="ml-2 text-sm text-gray-500 line-through">$142.00</span>
+            </p>
+
+            <!-- Rating -->
+            <div class="flex items-center justify-center mt-2 space-x-1">
+              <!-- Rating Stars -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                class="w-4 h-4 text-yellow-400">
+                <path fill-rule="evenodd"
+                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                  clip-rule="evenodd" />
+              </svg>
+              <!-- Repeat the SVG for other stars -->
+              <p class="ml-1 text-sm text-gray-400">(200 reviews)</p>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button
+              class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600">
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </li>
+
+      <li class="splide__slide group">
+        <div
+          class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105">
+          <!-- Product Image -->
+          <div class="relative overflow-hidden rounded-lg">
+            <img class="w-full transition-opacity duration-300 group-hover:opacity-80"
+              src="./assets/images/outdoors.png" alt="sofa image" />
+            <span class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2">
+              -10%
+            </span>
+          </div>
+
+          <!-- Product Details -->
+          <div class="w-full mt-3 text-center">
+            <!-- Product Name -->
+            <p class="text-lg font-medium text-gray-800 group-hover:text-[#129087]">
+              STREET CHAIR
+            </p>
+
+            <!-- Pricing -->
+            <p class="mt-1 text-base font-medium text-[#129087]">
+              $50.00
+              <span class="ml-2 text-sm text-gray-500 line-through">$45.00</span>
+            </p>
+
+            <!-- Rating -->
+            <div class="flex items-center justify-center mt-2 space-x-1">
+              <!-- Rating Stars -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                class="w-4 h-4 text-yellow-400">
+                <path fill-rule="evenodd"
+                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                  clip-rule="evenodd" />
+              </svg>
+              <!-- Repeat the SVG for other stars -->
+              <p class="ml-1 text-sm text-gray-400">(700 reviews)</p>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button
+              class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600">
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </li>
+
+      <li class="splide__slide group">
+        <div
+          class="flex flex-col items-center p-4 transition-transform transform bg-white rounded-lg shadow-lg cursor-pointer hover:scale-105">
+          <!-- Product Image -->
+          <div class="relative overflow-hidden rounded-lg">
+            <img class="w-full transition-opacity duration-300 group-hover:opacity-80"
+              src="./assets/images/product-bigsofa.png" alt="sofa image" />
+            <span class="absolute px-3 py-1 text-xs font-semibold text-white bg-red-500 rounded-full top-2 right-2">
+              -10%
+            </span>
+          </div>
+
+          <!-- Product Details -->
+          <div class="w-full mt-3 text-center">
+            <!-- Product Name -->
+            <p class="text-lg font-medium text-gray-800 group-hover:text-[#129087]">
+              WHITE SOFA
+            </p>
+
+            <!-- Pricing -->
+            <p class="mt-1 text-base font-medium text-[#129087]">
+              $45.00
+              <span class="ml-2 text-sm text-gray-500 line-through">$50.00</span>
+            </p>
+
+            <!-- Rating -->
+            <div class="flex items-center justify-center mt-2 space-x-1">
+              <!-- Rating Stars -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                class="w-4 h-4 text-yellow-400">
+                <path fill-rule="evenodd"
+                  d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z"
+                  clip-rule="evenodd" />
+              </svg>
+              <!-- Repeat the SVG for other stars -->
+              <p class="ml-1 text-sm text-gray-400">(38 reviews)</p>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button
+              class="w-full py-2 mt-4 text-sm font-medium text-white transition-all duration-300 transform bg-teal-600 rounded-lg hover:scale-105 hover:bg-teal-600">
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+  <!-- /Recommendations -->
+
+  <!-- Desktop Footer  -->
+
+  <footer class="mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row">
+    <div class="w-1/2">
+      <a href="./index.html" class="flex items-center py-3">
+        <span class="text-5xl font-bold text-teal-600 drop-shadow-md">
+          Ali
+        </span>
+        <span class="pt-1 text-3xl font-light tracking-wide text-gray-700 uppercase">
+          Commerce
+        </span>
+
+        <!-- <img
           class="cursor-pointer sm:h-auto sm:w-auto"
           src="./assets/images/company-logo.svg"
           alt="company logo"
         /> -->
+      </a>
+      <p class="pl-0 pr-12">
+        Ali Commerce offers a wide range of quality products at great prices.
+        Shop for gadgets, essentials, and more, all with easy and reliable
+        service. Enjoy a smooth shopping experience with us!
+      </p>
+      <div class="flex items-center gap-3 mt-10">
+        <a href="https://github.com/asgharali101">
+          <img class="w-5 h-5 cursor-pointer" src="./assets/images/github.svg" alt="github icon" />
         </a>
-        <p class="pl-0 pr-12">
-          Ali Commerce offers a wide range of quality products at great prices.
-          Shop for gadgets, essentials, and more, all with easy and reliable
-          service. Enjoy a smooth shopping experience with us!
-        </p>
-        <div class="flex items-center gap-3 mt-10">
-          <a href="https://github.com/asgharali101">
-            <img
-              class="w-5 h-5 cursor-pointer"
-              src="./assets/images/github.svg"
-              alt="github icon"
-            />
-          </a>
-          <a href="https://www.x.com/AsgharAli101">
-            <img
-              class="cursor-pointer w-7 h-7"
-              src="./assets/images/twitter-x.svg"
-              alt="twitter icon"
-            />
-          </a>
-          <a href="https://www.facebook.com/asgharburdi22">
-            <img
-              class="w-5 h-5 cursor-pointer"
-              src="./assets/images/facebook.svg"
-              alt="twitter icon"
-            />
-          </a>
-        </div>
+        <a href="https://www.x.com/AsgharAli101">
+          <img class="cursor-pointer w-7 h-7" src="./assets/images/twitter-x.svg" alt="twitter icon" />
+        </a>
+        <a href="https://www.facebook.com/asgharburdi22">
+          <img class="w-5 h-5 cursor-pointer" src="./assets/images/facebook.svg" alt="twitter icon" />
+        </a>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-6 md:grid-cols-4">
+      <div class="mx-5 mt-10">
+        <p class="font-medium text-gray-500">FEATURES</p>
+        <ul class="text-sm leading-8">
+          <li><a href="#">Marketing</a></li>
+          <li><a href="#">Commerce</a></li>
+          <li><a href="#">Analytics</a></li>
+          <li><a href="#">Merchendise</a></li>
+        </ul>
       </div>
 
-      <div class="grid grid-cols-2 gap-6 md:grid-cols-4">
-        <div class="mx-5 mt-10">
-          <p class="font-medium text-gray-500">FEATURES</p>
-          <ul class="text-sm leading-8">
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Commerce</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Merchendise</a></li>
-          </ul>
-        </div>
-
-        <div class="mx-5 mt-10">
-          <p class="font-medium text-gray-500">SUPPORT</p>
-          <ul class="text-sm leading-8">
-            <li><a href="#">Pricing</a></li>
-            <li><a href="#">Docs</a></li>
-            <li><a href="#">Audition</a></li>
-            <li><a href="#">Art Status</a></li>
-          </ul>
-        </div>
-
-        <div class="mx-5 mt-10">
-          <p class="font-medium text-gray-500">DOCUMENTS</p>
-          <ul class="text-sm leading-8">
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Conditions</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">License</a></li>
-          </ul>
-        </div>
-
-        <div class="mx-5 mt-10">
-          <p class="font-medium text-gray-500">DELIVERY</p>
-          <ul class="text-sm leading-8">
-            <li><a href="#">List of countries</a></li>
-            <li><a href="#">Special information</a></li>
-            <li><a href="#">Restrictions</a></li>
-            <li><a href="#">Payment</a></li>
-          </ul>
-        </div>
+      <div class="mx-5 mt-10">
+        <p class="font-medium text-gray-500">SUPPORT</p>
+        <ul class="text-sm leading-8">
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Docs</a></li>
+          <li><a href="#">Audition</a></li>
+          <li><a href="#">Art Status</a></li>
+        </ul>
       </div>
-    </footer>
-    <!-- /Desktop Footer  -->
 
-    <!-- Payment and copyright  -->
-
-    <section class="h-11 bg-amber-400">
-      <div
-        class="mx-auto flex max-w-[1200px] items-center justify-between px-4 pt-2"
-      >
-        <p>&copy; Asghar Ali, 2025</p>
-        <div class="flex items-center space-x-3">
-          <img
-            class="h-8"
-            src="https://cdn-icons-png.flaticon.com/512/5968/5968299.png"
-            alt="Visa icon"
-          />
-          <img
-            class="h-8"
-            src="https://cdn-icons-png.flaticon.com/512/349/349228.png"
-            alt="AE icon"
-          />
-          <img
-            class="h-8"
-            src="https://cdn-icons-png.flaticon.com/512/5968/5968144.png"
-            alt="Apple pay icon"
-          />
-        </div>
+      <div class="mx-5 mt-10">
+        <p class="font-medium text-gray-500">DOCUMENTS</p>
+        <ul class="text-sm leading-8">
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Conditions</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">License</a></li>
+        </ul>
       </div>
-    </section>
-    <!-- /Payment and copyright  -->
-    <script type="module" src="assets/js/script.js"></script>
-  </body>
+
+      <div class="mx-5 mt-10">
+        <p class="font-medium text-gray-500">DELIVERY</p>
+        <ul class="text-sm leading-8">
+          <li><a href="#">List of countries</a></li>
+          <li><a href="#">Special information</a></li>
+          <li><a href="#">Restrictions</a></li>
+          <li><a href="#">Payment</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <!-- /Desktop Footer  -->
+
+  <!-- Payment and copyright  -->
+
+  <section class="h-11 bg-amber-400">
+    <div class="mx-auto flex max-w-[1200px] items-center justify-between px-4 pt-2">
+      <p>&copy; Asghar Ali, 2025</p>
+      <div class="flex items-center space-x-3">
+        <img class="h-8" src="https://cdn-icons-png.flaticon.com/512/5968/5968299.png" alt="Visa icon" />
+        <img class="h-8" src="https://cdn-icons-png.flaticon.com/512/349/349228.png" alt="AE icon" />
+        <img class="h-8" src="https://cdn-icons-png.flaticon.com/512/5968/5968144.png" alt="Apple pay icon" />
+      </div>
+    </div>
+  </section>
+  <!-- /Payment and copyright  -->
+  <script type="module" src="assets/js/script.js"></script>
+</body>
+
 </html>
