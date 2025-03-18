@@ -56,3 +56,7 @@ npm run dev
 # or Build
 npm run build
 ```
+
+
+## live
+https://asghar-store.netlify.app/
